@@ -1,0 +1,642 @@
+[
+  {
+    "model": "attendanceapp.student",
+    "pk": 1,
+    "fields": {
+      "register_number": "111522203001",
+      "name": "ARUNKUMAR V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 2,
+    "fields": {
+      "register_number": "111522203002",
+      "name": "ASHIKA G",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 3,
+    "fields": {
+      "register_number": "111522203003",
+      "name": "ASHWIN SATHAPPAN V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 4,
+    "fields": {
+      "register_number": "111522203004",
+      "name": "BALA M",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 5,
+    "fields": {
+      "register_number": "111522203005",
+      "name": "BHARATHWAJ K S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 6,
+    "fields": {
+      "register_number": "111522203006",
+      "name": "BHAVADHARANI V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 7,
+    "fields": {
+      "register_number": "111522203007",
+      "name": "BHUVAN KALYAN G V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 8,
+    "fields": {
+      "register_number": "111522203008",
+      "name": "DEV DHARSHNI A M",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 9,
+    "fields": {
+      "register_number": "111522203009",
+      "name": "DHARSHINI E",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 10,
+    "fields": {
+      "register_number": "111522203010",
+      "name": "DHARSHINI S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 11,
+    "fields": {
+      "register_number": "111522203011",
+      "name": "GAUTHAM S H",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 12,
+    "fields": {
+      "register_number": "111522203012",
+      "name": "GIRIDHARAN P",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 13,
+    "fields": {
+      "register_number": "111522203013",
+      "name": "GOBINATH K",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 14,
+    "fields": {
+      "register_number": "111522203014",
+      "name": "HARINI T",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 15,
+    "fields": {
+      "register_number": "111522203015",
+      "name": "HARISH B",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 16,
+    "fields": {
+      "register_number": "111522203016",
+      "name": "HARITHRA R",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 17,
+    "fields": {
+      "register_number": "111522203017",
+      "name": "HARSHITHA D",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 18,
+    "fields": {
+      "register_number": "111522203018",
+      "name": "HEMADARSHNI J",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 19,
+    "fields": {
+      "register_number": "111522203019",
+      "name": "HEMAVATHY R",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 20,
+    "fields": {
+      "register_number": "111522203020",
+      "name": "INBATHAMILAN A",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 21,
+    "fields": {
+      "register_number": "111522203021",
+      "name": "ISAIVASHINI S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 22,
+    "fields": {
+      "register_number": "111522203022",
+      "name": "KANISHIK E",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 23,
+    "fields": {
+      "register_number": "111522203023",
+      "name": "KANISHKA S",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 24,
+    "fields": {
+      "register_number": "111522203024",
+      "name": "KARTHIGA V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 25,
+    "fields": {
+      "register_number": "111522203025",
+      "name": "KAVIPRIYA P",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 26,
+    "fields": {
+      "register_number": "111522203026",
+      "name": "KEERTHANA S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 27,
+    "fields": {
+      "register_number": "111522203027",
+      "name": "KISHORE BABU U",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 28,
+    "fields": {
+      "register_number": "111522203028",
+      "name": "MANASA G V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 29,
+    "fields": {
+      "register_number": "111522203029",
+      "name": "MANJUSHREE M",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 30,
+    "fields": {
+      "register_number": "111522203030",
+      "name": "MANOJ KUMAR P",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 31,
+    "fields": {
+      "register_number": "111522203031",
+      "name": "MERCY CATHERINE D",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 32,
+    "fields": {
+      "register_number": "111522203032",
+      "name": "MOHANA SHRI V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 33,
+    "fields": {
+      "register_number": "111522203033",
+      "name": "MOTHIPRAKASH R",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 34,
+    "fields": {
+      "register_number": "111522203034",
+      "name": "NIRANJANA R",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 35,
+    "fields": {
+      "register_number": "111522203035",
+      "name": "PRATHYUSH N P",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 36,
+    "fields": {
+      "register_number": "111522203036",
+      "name": "PRAVEEN S",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 37,
+    "fields": {
+      "register_number": "111522203037",
+      "name": "PRIYADHARSHINI L",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 38,
+    "fields": {
+      "register_number": "111522203038",
+      "name": "PRIYADHARSHINI S",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 39,
+    "fields": {
+      "register_number": "111522203039",
+      "name": "RAHUL K",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 40,
+    "fields": {
+      "register_number": "111522203040",
+      "name": "RAMANAN S",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 41,
+    "fields": {
+      "register_number": "111522203041",
+      "name": "RAMYA A",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 42,
+    "fields": {
+      "register_number": "111522203042",
+      "name": "RASHMI S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 43,
+    "fields": {
+      "register_number": "111522203043",
+      "name": "RESHMA SHAIK",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 44,
+    "fields": {
+      "register_number": "111522203044",
+      "name": "ROHITH KUMAR V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 45,
+    "fields": {
+      "register_number": "111522203045",
+      "name": "ROSHAN N S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 46,
+    "fields": {
+      "register_number": "111522203046",
+      "name": "RUBADHARSHINI P",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 47,
+    "fields": {
+      "register_number": "111522203047",
+      "name": "SAI VISHNU K",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 48,
+    "fields": {
+      "register_number": "111522203048",
+      "name": "SATHYAPRIYA S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 49,
+    "fields": {
+      "register_number": "111522203049",
+      "name": "SHARAN A E",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 50,
+    "fields": {
+      "register_number": "111522203050",
+      "name": "SHERLIN S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 51,
+    "fields": {
+      "register_number": "111522203051",
+      "name": "SHREYA AGRAWAL",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 52,
+    "fields": {
+      "register_number": "111522203052",
+      "name": "SIVAN ARUTCH SELVAN A S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 53,
+    "fields": {
+      "register_number": "111522203053",
+      "name": "SOWMYA V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 54,
+    "fields": {
+      "register_number": "111522203054",
+      "name": "SRINATH M",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 55,
+    "fields": {
+      "register_number": "111522203055",
+      "name": "SRINITHI P",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 56,
+    "fields": {
+      "register_number": "111522203056",
+      "name": "SRUTHIK T",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 57,
+    "fields": {
+      "register_number": "111522203057",
+      "name": "SUPRAJA M B",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 58,
+    "fields": {
+      "register_number": "111522203058",
+      "name": "SWATHI V",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 59,
+    "fields": {
+      "register_number": "111522203059",
+      "name": "THANIGAIVELAVAN A",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 60,
+    "fields": {
+      "register_number": "111522203060",
+      "name": "THIPIRISHETTY KAVYA SRI",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 61,
+    "fields": {
+      "register_number": "111522203061",
+      "name": "UDHAYA SARAVANAN G",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 62,
+    "fields": {
+      "register_number": "111522203062",
+      "name": "VISHAL V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 63,
+    "fields": {
+      "register_number": "111522203063",
+      "name": "DINESH V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 64,
+    "fields": {
+      "register_number": "111522203301",
+      "name": "YASHWANTHASAI G K",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  }
+]

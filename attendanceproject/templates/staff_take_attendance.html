@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}
+{{page_title}}
+{% endblock page_title %}
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">Note Attendance</h3>
+                    </div>
+
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="card-body">
+
+
+                        {% for staff in staffs %}
+                        <div class="form-group">
+                            <label>Department</label>
+                            <input name="department" type="text" value="{{staff.Class.department}}" class="form-control"
+                                id='department' disabled />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Semester</label>
+                            <input name="semester" type="text" value="{{staff.Class.semester}}" class="form-control"
+                                id='semester' disabled />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Section</label>
+                            <input name="section" type="text" value="{{staff.Class.section}}" class="form-control"
+                                id='section' disabled />
+                        </div>
+                        {% endfor %}
+                        {% comment %}
+
+                        <div>
+                            <label>Attendance Date</label>
+                            <input type="date" class='form-control' name="attendance_date" id='attendance_date' id="">
+                        </div>
+                        {% endcomment %}
+
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        {%if is_attendance_taken_today == 'No'%}
+                        <button type="button" id='fetch_student' class="btn btn-success btn-block">Proceed</button>
+                        {% else %}
+                        <input value="Already Noted" type="button" id='fetch_student' class="btn btn-success btn-block"
+                            disabled />
+                        {% endif %}
+                        <div class="form-group" id="student_data">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+
+
+            <!-- CARD 2 -->
+            <div class="col-md-12">
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">Absent for past 3 days</h3>
+                    </div>
+
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div id="card-body2">
+                        <ul id="studentList"></ul>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.CARD2  -->
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+
+{% block custom_js %}
+<script>
+
+    function get_consecutive_absent_students(callback) {
+        $.ajax({
+            url: "{% url 'get_consecutive_absent_students' %}",
+            type: 'GET',
+            dataType: 'json',
+        }).done(function (response) {
+            console.log("AJAX request successful:", response);
+
+            var vals = [];
+            for (var key in response) {
+                if (response.hasOwnProperty(key)) {
+                    var student = response[key];
+                    vals.push({
+                        'id': student.id,
+                        'name': student.name
+                    });
+                }
+            }
+            callback(vals);
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            console.log("Error: " + textStatus + ", " + errorThrown);
+        });
+    }
+
+    $(document).ready(function () {
+        get_consecutive_absent_students(function (data) {
+            var studentList = $("#studentList");
+            studentList.empty();
+            if (data.length!=0) {
+                for (var i = 0; i < data.length; i++) {
+                    studentList.append('<div class="list-group-item">Register Number: ' + data[i].id + ', Name: ' + data[i].name + '</div>');
+                }
+            }
+            else{
+                studentList.append('<div class="list-group-item">No one</div>');
+            }
+
+        });
+
+        function getCsrfToken() {
+            return $('input[name="csrfmiddlewaretoken"]').val();
+        }
+
+        $("#fetch_student").click(function () {
+            var department = $("#department").val();
+            var semester = $("#semester").val();
+            var section = $("#section").val();
+
+            $.ajax({
+                url: "{% url 'get_students' %}",
+                type: 'POST',
+                headers: {
+                    'X-CSRFToken': getCsrfToken()
+                },
+                data: {
+                    department: department,
+                    semester: semester,
+                    section: section
+                }
+            }).done(function (response) {
+                var json_data = response;
+                if (json_data.length < 1) {
+                    alert("No data to display");
+                } else {
+                    var today = new Date().toISOString().split('T')[0];
+
+                    var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Attendance Date</label><input type='date' class='form-control' name='attendance_date' id='attendance_date' value='" + today + "' readonly><div class='row'>";
+
+                    for (var key in json_data) {
+                        div_data += "<div class='col-lg-3'><div class='form-group'><label>" + json_data[key]['id'] + "</label><select class='form-control' name='student_data[" + json_data[key]['id'] + "]'>";
+                        div_data += "<option value='Present'>Present</option>";
+                        div_data += "<option value='Absent'>Absent</option>";
+                        div_data += "<option value='On Duty Internal'>On Duty Internal</option>";
+                        div_data += "<option value='On Duty External'>On Duty External</option>";
+                        div_data += "</select></div></div>";
+                    }
+
+                    div_data += "</div></div>";
+                    div_data += "<div class='form-group'><button id='save_attendance' class='btn btn-success' type='button'>Save Attendance</button></div>";
+                    $("#student_data").html(div_data);
+                }
+            }).fail(function (response) {
+                alert("Error in fetching students");
+            });
+        });
+
+        $(document).on('click', '#save_attendance', function () {
+            $(this).attr("disabled", "disabled");
+            $(this).text("Saving Attendance Data...");
+
+            var student_data = {};
+            $("select[name^='student_data']").each(function () {
+                var student_id = $(this).attr('name').match(/\[(\d+)\]/)[1];
+                var status = $(this).val();
+                student_data[student_id] = { 'id': student_id, 'status': status };
+            });
+
+            var student_data_array = Object.values(student_data);
+            var attendance_date = $('#attendance_date').val();
+
+            $.ajax({
+                url: "{% url 'save_attendance' %}",
+                type: 'POST',
+                headers: {
+                    'X-CSRFToken': getCsrfToken()
+                },
+                data: {
+                    date: attendance_date,
+                    register_numbers: JSON.stringify(student_data_array),
+                    department: $("#department").val(),
+                    semester: $("#semester").val(),
+                    section: $("#section").val()
+                }
+            }).done(function (response) {
+                if (response === 'OK') {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "The Attedance have been saved successfully.",
+                        icon: "success",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+
+                        }
+                    });
+
+                } else {
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Please try again.",
+                        icon: "error",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        }
+                    });
+                }
+
+            }).fail(function (response) {
+                Swal.fire({
+                    title: "Error!",
+                    text: "Please try again.",
+                    icon: "error",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+{% endblock custom_js %}
