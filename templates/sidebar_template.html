@@ -1,82 +1,97 @@
 {% load static %}
 <aside class="main-sidebar sidebar-dark-info elevation-4">
-                <!-- Brand Logo -->
-                <a href="#" class="brand-link">
-                    <img src="{% static 'dist/img/AdminLTELogo.png' %} " alt="AdminLTE Logo"
-                        class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">Staff Panel</span>
-                </a>
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+        <img src="{% static 'dist/img/AdminLTELogo.png' %} " alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3" style="opacity: .8">
+        {% if user.is_staff %}
+        <span class="brand-text font-weight-light">HOD Panel</span>
+        {% else %}
+        <span class="brand-text font-weight-light">Staff Panel</span>
+        {% endif %}
+    </a>
 
-                <!-- Sidebar -->
-                <div class="sidebar">
-                    <!-- Sidebar user panel (optional) -->
-                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div class="image">
-                            <img src="{{ request.user.profile_pic}}" class="img-circle elevation-2" alt="User">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block">{{ user}}</a>
-                        </div>
-                    </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ request.user.profile_pic}}" class="img-circle elevation-2" alt="User">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">{{ user}}</a>
+            </div>
+        </div>
 
-                    <!-- Sidebar Menu -->
-                    <nav class="mt-2">
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                            data-accordion="false">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                            <li class="nav-item">
-                                <a href="/"
-                                    class="nav-link {% if '/' == request.path %} active {% endif %}">
-                                    <i class="nav-icon fas fa-home"></i>
-                                    <p>
-                                        Home
+                <li class="nav-item">
+                    <a href="/" class="nav-link {% if '/' == request.path %} active {% endif %}">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Home
 
-                                    </p>
-                                </a>
-                            </li>
+                        </p>
+                    </a>
+                </li>
+                {% if user.is_staff %}
+                {% else %}
+                <li class="nav-item">
+                    {% url 'staff_take_attendance' as staff_take_attendance %}
+                    <a href="{{staff_take_attendance}}"
+                        class="nav-link {% if staff_take_attendance == request.path %} active {% endif %}">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>
+                            Take Attendance
+                        </p>
+                    </a>
+                </li>
+                {% endif %}
 
-                            <li class="nav-item">
-                                {% url 'staff_take_attendance' as staff_take_attendance %}
-                                <a href="{{staff_take_attendance}}"
-                                    class="nav-link {% if staff_take_attendance == request.path %} active {% endif %}">
-                                    <i class="nav-icon fas fa-calendar-alt"></i>
-                                    <p>
-                                        Take Attendance
-                                    </p>
-                                </a>
-                            </li>
+                {% if user.is_staff %}
+                <li class="nav-item">
+                    {% url 'hod_view_attendance' as hod_view_attendance %}
+                    <a href="{{hod_view_attendance}}"
+                        class="nav-link {% if hod_view_attendance == request.path %} active {% endif %}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            View Attendance
 
-                            
-                            <li class="nav-item">
-                                {% url 'staff_update_attendance' as staff_update_attendance %}
-                                <a href="{{staff_update_attendance}}"
-                                    class="nav-link {% if staff_update_attendance == request.path %} active {% endif %}">
-                                    <i class="nav-icon fas fa-th"></i>
-                                    <p>
-                                        View Attendance
+                        </p>
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    {% url 'staff_view_attendance' as staff_view_attendance %}
+                    <a href="{{staff_view_attendance}}"
+                        class="nav-link {% if staff_view_attendance == request.path %} active {% endif %}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            View Attendance
 
-                                    </p>
-                                </a>
-                            </li>
-
-
-
-                            <li class="nav-item">
-                                <a href="logout"
-                                    class="nav-link {% if logout == request.path %} active {% endif %}">
-                                    <i class="nav-icon fas fa-power-off"></i>
-                                    <p>
-                                        Logout
-                                    </p>
-                                </a>
-                            </li>
-                            
+                        </p>
+                    </a>
+                </li>
+                {% endif %}
 
 
+                <li class="nav-item">
+                    <a href="logout" class="nav-link {% if logout == request.path %} active {% endif %}">
+                        <i class="nav-icon fas fa-power-off"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </a>
+                </li>
 
-                                    </ul>
-                                </nav>
-                                <!-- /.sidebar-menu -->
-                            </div>
-                            <!-- /.sidebar -->
+
+
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
 </aside>

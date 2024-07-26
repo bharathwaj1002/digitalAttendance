@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-info">
+                <div class="small-box bg-success">
                     <div class="inner">
 
                         <p>Total Students</p>
@@ -17,7 +17,8 @@
                     <div class="icon">
                         <i class="nav-icon fas fa-user-graduate"></i>
                     </div>
-                    <a href="students_info" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="students_info" class="small-box-footer">More info <i
+                            class="fas fa-arrow-circle-right"></i></a>
 
 
                 </div>
@@ -25,7 +26,7 @@
             <!-- ./col -->
             <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-success">
+                <div class="small-box bg-info">
                     <div class="inner">
 
                         <p>Attendance Noted?</p>
@@ -34,7 +35,8 @@
                     <div class="icon">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                     </div>
-                    <a href="staff_update_attendance" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="staff_view_attendance" class="small-box-footer">More info <i
+                            class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -42,9 +44,9 @@
                 <!-- small box -->
                 <div class="small-box bg-maroon">
                     <div class="inner">
+                        <p>Present</p>
                         <h3>{{total_present}}</h3>
 
-                        <p>Present</p>
                     </div>
                     <div class="icon">
                         <i class="nav-icon fas fa-user-plus"></i>
@@ -57,11 +59,13 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
+                        <p>Absent</p>
                         <h3>{{absent}}</h3>
 
-                        <p>Absent</p>
+                        {% if hosteller_absent_count and dayscholar_absent_count %}
                         <span>Hostellers: {{hosteller_absent_count}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <span>Dayscholar: {{dayscholar_absent_count}}</span>
+                        {% endif %}
                     </div>
                     <div class="icon">
                         <i class="nav-icon fas fa-user-minus"></i>
@@ -97,7 +101,7 @@
                 </div>
                 <!-- /.card-body -->
             </div>
-            
+
             <div class="col-md-6">
                 <div class="card card-secondary">
                     <div class="card-header">
@@ -161,7 +165,7 @@
                         <div class="chart">
                             {% if consecutive_absent_students %}
                             <table class="table-striped table-bordered">
-                                <thead class="card-title">
+                                <thead class="thead-dark">
                                     <tr>
                                         <th>Register Number</th>
                                         <th>Name</th>
@@ -209,8 +213,9 @@
             labels: ['Total Students', 'Present', 'Absent', 'OD-External', 'OD-External'],
             datasets: [
                 {
-                    data: [{{ count }}, {{ present }}, {{ absent }}, {{ OD_EX }}, {{ OD_IN }}],
-        backgroundColor: ['#00FFFF', '#00FF00','#343a40', '#ffc107', '#dc3545'],
+                    data: [{{ count }}, {{ present }}, {{ absent }
+    }, {{ OD_EX }}, {{ OD_IN }}],
+        backgroundColor: ['#00FFFF', '#00FF00', '#343a40', '#ffc107', '#dc3545'],
                 }
             ]
         };
@@ -230,15 +235,15 @@
         options: pieOptions
     });
     });
-    
+
     $(document).ready(function () {
         var donutData = {
             labels: ['Absent - Hosteller', 'Absent - Dayscholar'],
             datasets: [
                 {
                     data: [{{ hosteller_absent_count }}, {{ dayscholar_absent_count }}],
-        backgroundColor: ['#00FFFF', '#00FF00'],
-                }
+            backgroundColor: ['#00FFFF', '#00FF00'],
+    }
             ]
         };
 
@@ -263,12 +268,12 @@
 
     $(document).ready(function () {
         var donutData = {
-            labels: ['OD - Hosteller','OD - Dayscholar'],
+            labels: ['OD - Hosteller', 'OD - Dayscholar'],
             datasets: [
                 {
-                    data: [{{hosteller_od}},{{ dayscholar_od }}],
-        backgroundColor: ['#00FFFF', '#00FF00'],
-                }
+                    data: [{{ hosteller_od }}, {{ dayscholar_od }}],
+            backgroundColor: ['#00FFFF', '#00FF00'],
+    }
             ]
         };
 

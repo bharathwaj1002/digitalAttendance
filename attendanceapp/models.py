@@ -75,7 +75,8 @@ class Student(models.Model):
 class Staff(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
-    Class = models.ForeignKey(Class, on_delete=models.DO_NOTHING)
+    department = models.ForeignKey(Department, on_delete=models.DO_NOTHING)
+    Class = models.ForeignKey(Class, on_delete=models.DO_NOTHING,blank=True,null=True)
 
     def __str__(self):
         return f"{self.name}"

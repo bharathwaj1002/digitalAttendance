@@ -123,12 +123,12 @@
         get_consecutive_absent_students(function (data) {
             var studentList = $("#studentList");
             studentList.empty();
-            if (data.length!=0) {
+            if (data.length != 0) {
                 for (var i = 0; i < data.length; i++) {
                     studentList.append('<div class="list-group-item">Register Number: ' + data[i].id + ', Name: ' + data[i].name + '</div>');
                 }
             }
-            else{
+            else {
                 studentList.append('<div class="list-group-item">No one</div>');
             }
 

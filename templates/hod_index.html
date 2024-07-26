@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-info">
+                <div class="small-box bg-success">
                     <div class="inner">
 
                         <p>Total Students</p>
@@ -17,24 +17,10 @@
                     <div class="icon">
                         <i class="nav-icon fas fa-user-graduate"></i>
                     </div>
-                    <a href="students_info" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="students_info" class="small-box-footer">More info <i
+                            class="fas fa-arrow-circle-right"></i></a>
 
 
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-success">
-                    <div class="inner">
-
-                        <p>Attendance Noted?</p>
-                        <h3>{{is_attendance_taken_today}}</h3>
-                    </div>
-                    <div class="icon">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
-                    </div>
-                    <a href="staff_update_attendance" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -42,9 +28,9 @@
                 <!-- small box -->
                 <div class="small-box bg-maroon">
                     <div class="inner">
+                        <p>Present</p>
                         <h3>{{total_present}}</h3>
 
-                        <p>Present</p>
                     </div>
                     <div class="icon">
                         <i class="nav-icon fas fa-user-plus"></i>
@@ -57,14 +43,34 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
+                        <p>Absent</p>
                         <h3>{{absent}}</h3>
 
-                        <p>Absent</p>
+                        {% if hosteller_absent_count and dayscholar_absent_count %}
+                        <span>Hostellers: {{hosteller_absent_count}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>Dayscholar: {{dayscholar_absent_count}}</span>
+                        {% endif %}
                     </div>
                     <div class="icon">
                         <i class="nav-icon fas fa-user-minus"></i>
                     </div>
                     <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+
+                        <p>On Duty</p>
+                        <h3>{{total_od_count}}</h3>
+                    </div>
+                    <div class="icon">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                    </div>
+                    <a href="staff_view_attendance" class="small-box-footer">More info <i
+                            class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -95,7 +101,7 @@
                 </div>
                 <!-- /.card-body -->
             </div>
-            
+
             <div class="col-md-6">
                 <div class="card card-secondary">
                     <div class="card-header">
@@ -141,6 +147,46 @@
                     <!-- /.card-body -->
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Class wise attendance - Overview (Today)</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                    class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                    class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="chart">
+                            <table class="table table-striped table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Semester</th>
+                                        <th>Section</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for class in classes %}
+                                    <tr>
+                                        <td>{{ class.semester }}</td>
+                                        <td>{{ class.section }}</td>
+                                        <td>{{ class.status }}</td>
+
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
             <!-- right col -->
         </div>
         <!-- /.row (main row) -->
@@ -155,8 +201,9 @@
             labels: ['Total Students', 'Present', 'Absent', 'OD-External', 'OD-External'],
             datasets: [
                 {
-                    data: [{{ count }}, {{ present }}, {{ absent }}, {{ OD_EX }}, {{ OD_IN }}],
-        backgroundColor: ['#00FFFF', '#00FF00','#343a40', '#ffc107', '#dc3545'],
+                    data: [{{ count }}, {{ present }}, {{ absent }
+    }, {{ OD_EX }}, {{ OD_IN }}],
+        backgroundColor: ['#00FFFF', '#00FF00', '#343a40', '#ffc107', '#dc3545'],
                 }
             ]
         };
@@ -176,15 +223,15 @@
         options: pieOptions
     });
     });
-    
+
     $(document).ready(function () {
         var donutData = {
             labels: ['Absent - Hosteller', 'Absent - Dayscholar'],
             datasets: [
                 {
                     data: [{{ hosteller_absent_count }}, {{ dayscholar_absent_count }}],
-        backgroundColor: ['#00FFFF', '#00FF00'],
-                }
+            backgroundColor: ['#00FFFF', '#00FF00'],
+    }
             ]
         };
 
@@ -209,12 +256,12 @@
 
     $(document).ready(function () {
         var donutData = {
-            labels: ['OD - Hosteller','OD - Dayscholar'],
+            labels: ['OD - Hosteller', 'OD - Dayscholar'],
             datasets: [
                 {
-                    data: [{{hosteller_od}},{{ dayscholar_od }}],
-        backgroundColor: ['#00FFFF', '#00FF00'],
-                }
+                    data: [{{ hosteller_od }}, {{ dayscholar_od }}],
+            backgroundColor: ['#00FFFF', '#00FF00'],
+    }
             ]
         };
 
