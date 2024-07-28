@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">{{page_title}}</h3>
+                    </div>
+
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="card-body">
+
+
+
+                        <div class="form-group">
+                            <label>Department</label>
+                            <select name="department" type="text" class="form-control" id='department'>
+                                <option value="SNH">Science and Humanities</option>
+                                <option value="IT">Information Technology</option>
+                                <option value="CSE">Computer Science and Engineering</option>
+                                <option value="CSBS">Computer Science and Business Systems</option>
+                                <option value="ECE">Electronics and communication Engineering</option>
+                                <option value="AIML">Artificial Intelligence and Machine Learning</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Semester</label>
+                            <select name="semester" type="text" class="form-control" id='semester'>
+                                <option value="I">1st Semester</option>
+                                <option value="II">2nd Semester</option>
+                                <option value="III">3rd Semester</option>
+                                <option value="IV">4th Semester</option>
+                                <option value="V">5th Semester</option>
+                                <option value="VI">6th Semester</option>
+                                <option value="VII">7th Semester</option>
+                                <option value="VIII">8th Semester</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Section</label>
+                            <select name="section" type="text" class="form-control" id='section'>
+                                <option value="A">A Section</option>
+                                <option value="B">B Section</option>
+                                <option value="C">C Section</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div style="display: none;" class="alert alert-danger" id='error_attendance'></div>
+                            <div class="alert alert-success" id='success_attendance' style="display: none;"></div>
+                            <button type="button" id='fetch_attendance' class="btn btn-success btn-block">Fetch
+                                Attendance</button>
+                        </div>
+                        <!-- /.card-body -->
+
+
+
+                        <div class="form-group" style="display: none;" id="attendance_block">
+                            <div class="form-group">
+                                <label>Attendance Date</label>
+                                <select name="attendance_date" id='attendance_date' class="form-control">
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+
+                                <div id="fetch_student_block" style="display: none;">
+                                    <button type="button" id='fetch_student' class="btn btn-success btn-block">Fetch
+                                        Students</button>
+
+                                    <!-- <button style="display: none;" type="button" id='save_attendance' class="btn btn-primary btn-block">Save Data</button> -->
+
+                                </div>
+                                <div id='student_data' class="card-footer">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+        </div>
+</section>
+{% endblock content %}
+
+
+{% block custom_js %}
+<script>
+    $(document).ready(function () {
+
+        function getCsrfToken() {
+            return $('input[name="csrfmiddlewaretoken"]').val();
+        }
+
+        $("#fetch_attendance").click(function () {
+            var department = $("#department").val()
+            var semester = $("#semester").val()
+            var section = $("#section").val()
+
+            $.ajax({
+                url: "{% url 'principal_get_attendance' %}",
+                type: 'POST',
+                headers: {
+                    'X-CSRFToken': getCsrfToken()
+                },
+                data: {
+                    department: department,
+                    semester: semester,
+                    section: section
+                }
+
+            }).done(function (response) {
+                var json_data = response
+                if (json_data.length > 0) {
+
+                    var html = "";
+                    for (key in json_data) {
+                        html += "<option value='" + json_data[key]['id'] + "'>" + json_data[key]['date'] + "</option>"
+                    }
+                    $("#attendance_date").html(html)
+                    $("#error_attendance").hide()
+                    $("#error_attendance").html("")
+                    $("#attendance_block").show()
+                    $("#fetch_student_block").show()
+                } else {
+                    $("#error_attendance").html("No Attendance Details Found")
+                    $("#error_attendance").show()
+                    $("#attendance_date").html("")
+                    $("#attendance_block").hide()
+
+
+                }
+            }).fail(function (response) {
+                alert("Error While Fetching Data")
+                $("#error_attendance").html("")
+                $("#error_attendance").show()
+                $("#attendance_block").hide()
+
+
+            })
+        })
+
+        $("#fetch_student").click(function () {
+            var department= $("#department").val()
+            var semester = $("#semester").val()
+            var section = $("#section").val()
+            var attendance_date = $("#attendance_date").val()
+            $("#student_data").html(null)
+            if (attendance_date.length == 0) {
+                alert("Please Choose A Date");
+                $("#save_attendance").hide()
+
+                return false;
+            }
+            $.ajax({
+                url: "{% url 'principal_get_attendance_report' %}",
+                type: 'POST',
+                headers: {
+                    'X-CSRFToken': getCsrfToken()
+                },
+                data: {
+                    attendance_date_id: attendance_date,
+                    department: department,
+                    semester: semester,
+                    section: section
+                }
+            }).done(function (response) {
+                var json_data = response
+                if (json_data.length < 1) {
+                    alert("No data to display")
+                    $("#save_attendance").hide()
+
+                } else {
+                    $("#save_attendance").show()
+
+                    var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Student Attendance</label><div class='row'>"
+
+                    for (key in json_data) {
+                        div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'>" + (json_data[key]['id']) + ' - ' + (json_data[key]['status']) + "</label></div> </div>"
+                    }
+                    div_data += "</div></div>"
+                    div_data += "<div class='form-group'><button id='save_attendance' class='btn btn-success' type='button'>export as sheet</button></div>"
+                    $("#student_data").html(div_data)
+
+
+                    function exportToExcel(json_data) {
+                        var wb = XLSX.utils.book_new();
+                        wb.Props = {
+                            Title: "Attendance Sheet",
+                            Subject: "Attendance",
+                            Author: department + "HOD",
+                            CreatedDate: new Date()
+                        };
+
+                        var ws_data = [['Date', 'Semester', 'Section', 'Register Number', 'Name', 'Status']];
+                        json_data.forEach(function (row) {
+                            ws_data.push([row.date, row.semester, row.section, row.id, row.name, row.status]);
+                        });
+
+                        var ws = XLSX.utils.aoa_to_sheet(ws_data);
+                        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+                        XLSX.writeFile(wb, "Attendance_Sheet.xlsx");
+                    }
+
+
+                    function generateStudentDataHTML(json_data) {
+                        var div_data = "<hr/><div class='form-group'></div><div class='form-group'><label>Student Attendance</label><div class='row'>";
+
+                        for (var key in json_data) {
+                            div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'>" + json_data[key]['id'] + ' - ' + json_data[key]['status'] + "</label></div> </div>";
+                        }
+
+                        div_data += "</div></div>";
+                        div_data += "<div class='form-group'><button id='save_attendance' class='btn btn-success' type='button'>export as sheet</button></div>";
+                        $("#student_data").html(div_data);
+
+                        $("#save_attendance").click(function () {
+                            exportToExcel(json_data);
+                            location.reload();
+                        });
+                    }
+
+                    // Initialize the student data HTML on page load
+                    $(document).ready(function () {
+                        generateStudentDataHTML(json_data);
+                    });
+                }
+            }).fail(function (response) {
+                alert("Error in fetching students")
+            })
+
+
+
+
+
+        })
+    })
+</script>
+{% endblock custom_js %}

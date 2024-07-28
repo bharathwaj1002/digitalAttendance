@@ -11,12 +11,10 @@
                     <tr>
                         <th>Register Number</th>
                         <th>Name</th>
-
-
-                        {%if students.1.date and students.1.status%}
+                        <th>Semester</th>
+                        <th>Section</th>
                         <th>Date</th>
                         <th>Status</th>
-                        {% endif %}
                         <th>Mode</th>
 
                     </tr>
@@ -27,14 +25,14 @@
                     <tr>
                         <td>{{ student.register_number }}</td>
                         <td>{{ student.name }}</td>
-                        {% if student.date and student.status%}
+                        <td>{{ student.semester }}</td>
+                        <td>{{ student.section }}</td>
                         <td>{{ student.date }}</td>
                         <td>{{ student.status }}</td>
-                        {% endif %}
                         <td>{{ student.mode }}</td>
                     </tr>
-                    {% endfor %}
                     
+                    {% endfor %}
 
                 </tbody>
             </table>

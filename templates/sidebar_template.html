@@ -4,11 +4,16 @@
     <a href="#" class="brand-link">
         <img src="{% static 'dist/img/AdminLTELogo.png' %} " alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        {% if user.is_staff %}
+
+        {% if user.is_superuser %}
+        <span class="brand-text font-weight-light">Principal Panel</span>
+
+        {% elif user.is_staff %}
         <span class="brand-text font-weight-light">HOD Panel</span>
         {% else %}
         <span class="brand-text font-weight-light">Staff Panel</span>
         {% endif %}
+
     </a>
 
     <!-- Sidebar -->
@@ -28,13 +33,20 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    <a href="/" class="nav-link {% if '/' == request.path %} active {% endif %}">
-                        <i class="nav-icon fas fa-home"></i>
-                        <p>
-                            Home
+                    {% if user.is_superuser %}
+                    <a href="/" class="nav-link {% if '/principal_index' == request.path %} active {% endif %}">
+                        {% elif user.is_staff %}
+                        <a href="/" class="nav-link {% if '/hod_index' == request.path %} active {% endif %}">
+                            {% else %}
+                            <a href="/" class="nav-link {% if '/' == request.path %} active {% endif %}">
+                                {% endif %}
+                                <i class="nav-icon fas fa-home">
+                                </i>
+                                <p>
+                                    Home
 
-                        </p>
-                    </a>
+                                </p>
+                            </a>
                 </li>
                 {% if user.is_staff %}
                 {% else %}
@@ -50,7 +62,20 @@
                 </li>
                 {% endif %}
 
-                {% if user.is_staff %}
+                {% if user.is_superuser %}
+                <li class="nav-item">
+                    {% url 'principal_view_attendance' as principal_view_attendance %}
+                    <a href="{{principal_view_attendance}}"
+                        class="nav-link {% if principal_view_attendance == request.path %} active {% endif %}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            View Attendance
+
+                        </p>
+                    </a>
+                </li>
+
+                {% elif user.is_staff %}
                 <li class="nav-item">
                     {% url 'hod_view_attendance' as hod_view_attendance %}
                     <a href="{{hod_view_attendance}}"

@@ -56,14 +56,28 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="/">Home</a>
                 </li>
+                {% if user.is_staff or user.is_superuser %}
+                {% else %}
 
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="staff_take_attendance ">Take Attendance</a>
                 </li>
+                {% endif %}
 
+                {% if user.is_superuser %}
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="staff_update_attendance ">View Attendance</a>
+                    <a class="nav-link" data-widget="pushmenu" href="principal_view_attendance ">View Attendance</a>
                 </li>
+                {% elif user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="hod_view_attendance ">View Attendance</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="staff_view_attendance ">View Attendance</a>
+                </li>
+
+                {% endif %}
 
             </ul>
 

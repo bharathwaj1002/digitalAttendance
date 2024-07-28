@@ -62,7 +62,7 @@
                         <p>Absent</p>
                         <h3>{{absent}}</h3>
 
-                        {% if hosteller_absent_count and dayscholar_absent_count %}
+                        {% if absent %}
                         <span>Hostellers: {{hosteller_absent_count}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <span>Dayscholar: {{dayscholar_absent_count}}</span>
                         {% endif %}
@@ -207,10 +207,12 @@
 {% endblock content %}
 
 {% block custom_js %}
+
+
 <script>
     $(document).ready(function () {
         var donutData = {
-            labels: ['Total Students', 'Present', 'Absent', 'OD-External', 'OD-External'],
+            labels: ['Total Students', 'Present', 'Absent', 'OD-External', 'OD-Internal'],
             datasets: [
                 {
                     data: [{{ count }}, {{ present }}, {{ absent }}, {{ OD_EX }}, {{ OD_IN }}],

@@ -1,0 +1,2984 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2024-07-26T05:13:11.067Z",
+      "user": 1,
+      "content_type": 4,
+      "object_id": "2",
+      "object_repr": "Jothilakshmi",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2024-07-26T05:13:34.379Z",
+      "user": 1,
+      "content_type": 4,
+      "object_id": "2",
+      "object_repr": "Jothilakshmi",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Email address\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2024-07-26T10:06:17.100Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "IT - V - A (2024-07-26)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add attendance",
+      "content_type": 7,
+      "codename": "add_attendance"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change attendance",
+      "content_type": 7,
+      "codename": "change_attendance"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete attendance",
+      "content_type": 7,
+      "codename": "delete_attendance"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view attendance",
+      "content_type": 7,
+      "codename": "view_attendance"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add department",
+      "content_type": 8,
+      "codename": "add_department"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change department",
+      "content_type": 8,
+      "codename": "change_department"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete department",
+      "content_type": 8,
+      "codename": "delete_department"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view department",
+      "content_type": 8,
+      "codename": "view_department"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add class",
+      "content_type": 9,
+      "codename": "add_class"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change class",
+      "content_type": 9,
+      "codename": "change_class"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete class",
+      "content_type": 9,
+      "codename": "delete_class"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view class",
+      "content_type": 9,
+      "codename": "view_class"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add staff",
+      "content_type": 10,
+      "codename": "add_staff"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change staff",
+      "content_type": 10,
+      "codename": "change_staff"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete staff",
+      "content_type": 10,
+      "codename": "delete_staff"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view staff",
+      "content_type": 10,
+      "codename": "view_staff"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add student",
+      "content_type": 11,
+      "codename": "add_student"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change student",
+      "content_type": 11,
+      "codename": "change_student"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete student",
+      "content_type": 11,
+      "codename": "delete_student"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view student",
+      "content_type": 11,
+      "codename": "view_student"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add attendance report",
+      "content_type": 12,
+      "codename": "add_attendancereport"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change attendance report",
+      "content_type": 12,
+      "codename": "change_attendancereport"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete attendance report",
+      "content_type": 12,
+      "codename": "delete_attendancereport"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view attendance report",
+      "content_type": 12,
+      "codename": "view_attendancereport"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$qxwAFybFrrejabAWKFY9s3$H6WXXP++2kdvUmelidRVWUwuBiB+pF9Y1J4a0jP0REc=",
+      "last_login": "2024-07-26T10:05:33.276Z",
+      "is_superuser": true,
+      "username": "Bharathwaj",
+      "first_name": "",
+      "last_name": "",
+      "email": "bharathwaj11a@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-07-26T05:11:56.799Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$AWmatwxxxZV7FkwX0F4zrk$g6rKDZKPRjjUlTLzomPwCjmhAuM3ah6E9xZjLkREhZA=",
+      "last_login": "2024-07-26T05:31:43.126Z",
+      "is_superuser": false,
+      "username": "Jothilakshmi",
+      "first_name": "",
+      "last_name": "",
+      "email": "rjl.it@rmd.ac.in",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-07-26T05:13:10Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": { "app_label": "admin", "model": "logentry" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": { "app_label": "auth", "model": "permission" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": { "app_label": "auth", "model": "group" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": { "app_label": "auth", "model": "user" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": { "app_label": "contenttypes", "model": "contenttype" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": { "app_label": "sessions", "model": "session" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": { "app_label": "attendanceapp", "model": "attendance" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": { "app_label": "attendanceapp", "model": "department" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": { "app_label": "attendanceapp", "model": "class" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": { "app_label": "attendanceapp", "model": "staff" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": { "app_label": "attendanceapp", "model": "student" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": { "app_label": "attendanceapp", "model": "attendancereport" }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "30ymwjzu4thvgjv0f050feistsq4enxy",
+    "fields": {
+      "session_data": ".eJxVi8EOwiAQRP-Fs2mALQjeNOl3kGXZDY3aNJaejP8uxoveZubNe6qEe6tp3_iR5qJOyqrD75aRrrx8ALbWAy7EuK7DdMf5dvnC4dzv_1rFrXYnEwcqgu7owGqvTWQJlAG8iBcYvQ4GivSOgTX2aMFFS9FqMCRRvd6KRTQI:1sXDYN:thyfOXyD6HrwTUO8FwwpYSttdEg4YN1G7_3hW61kui0",
+      "expire_date": "2024-08-09T05:31:43.186Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "82wltmtv0809pnoyenbbs995o1bhfdvg",
+    "fields": {
+      "session_data": ".eJxVi8sKwjAQRf8laymZPOyMOwW_I0wmCSlqKW26Ev_diBvdXe4556kC762GfctrmJI6KVCH3y-y3PL8AdxaHzxL5mUZrg-e7pcvHM5d_88qb7U31unsDQGViIkSZIxMNmnrQDyOungDTkAcIpfxaBIQgS5gKNqIFtXrDWAcMx8:1sXHpN:_Kku5TwG1hqiT26dvLoKgAwxLFDMwym8CG5FR7D9uvU",
+      "expire_date": "2024-08-09T10:05:33.306Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "jh6o1atrhytfdor5gjkoo9fqg5kwrsft",
+    "fields": {
+      "session_data": ".eJxVi8sKwjAQRf8laymZPOyMOwW_I0wmCSlqKW26Ev_diBvdXe4556kC762GfctrmJI6KVCH3y-y3PL8AdxaHzxL5mUZrg-e7pcvHM5d_88qb7U31unsDQGViIkSZIxMNmnrQDyOungDTkAcIpfxaBIQgS5gKNqIFtXrDWAcMx8:1sXDK6:H6FWzO4PawqPfXk7FeGwHib7th8wwNt_tnqmCRVUQK4",
+      "expire_date": "2024-08-09T05:16:58.366Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "llv161vcj8x5lexw9t8ui0i5slvgsgti",
+    "fields": {
+      "session_data": ".eJxVi8sKwjAQRf8laymZPOyMOwW_I0wmCSlqKW26Ev_diBvdXe4556kC762GfctrmJI6KVCH3y-y3PL8AdxaHzxL5mUZrg-e7pcvHM5d_88qb7U31unsDQGViIkSZIxMNmnrQDyOungDTkAcIpfxaBIQgS5gKNqIFtXrDWAcMx8:1sXDYe:Vrp7a_K4GHDUjRGqvz6kQvXQiJmhaTf3scdGW7Ud_Xc",
+      "expire_date": "2024-08-09T05:32:00.752Z"
+    }
+  },
+  {
+    "model": "attendanceapp.department",
+    "pk": 1,
+    "fields": { "department_name": "IT" }
+  },
+  {
+    "model": "attendanceapp.class",
+    "pk": 1,
+    "fields": {
+      "department": 1,
+      "year": "III Year",
+      "semester": "V",
+      "section": "A"
+    }
+  },
+  {
+    "model": "attendanceapp.class",
+    "pk": 2,
+    "fields": {
+      "department": 1,
+      "year": "II Year",
+      "semester": "II",
+      "section": "B"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 1,
+    "fields": {
+      "register_number": "111522203001",
+      "name": "ARUNKUMAR V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 2,
+    "fields": {
+      "register_number": "111522203002",
+      "name": "ASHIKA G",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 3,
+    "fields": {
+      "register_number": "111522203003",
+      "name": "ASHWIN SATHAPPAN V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 4,
+    "fields": {
+      "register_number": "111522203004",
+      "name": "BALA M",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 5,
+    "fields": {
+      "register_number": "111522203005",
+      "name": "BHARATHWAJ K S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 6,
+    "fields": {
+      "register_number": "111522203006",
+      "name": "BHAVADHARANI V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 7,
+    "fields": {
+      "register_number": "111522203007",
+      "name": "BHUVAN KALYAN G V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 8,
+    "fields": {
+      "register_number": "111522203008",
+      "name": "DEV DHARSHNI A M",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 9,
+    "fields": {
+      "register_number": "111522203009",
+      "name": "DHARSHINI E",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 10,
+    "fields": {
+      "register_number": "111522203010",
+      "name": "DHARSHINI S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 11,
+    "fields": {
+      "register_number": "111522203011",
+      "name": "GAUTHAM S H",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 12,
+    "fields": {
+      "register_number": "111522203012",
+      "name": "GIRIDHARAN P",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 13,
+    "fields": {
+      "register_number": "111522203013",
+      "name": "GOBINATH K",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 14,
+    "fields": {
+      "register_number": "111522203014",
+      "name": "HARINI T",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 15,
+    "fields": {
+      "register_number": "111522203015",
+      "name": "HARISH B",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 16,
+    "fields": {
+      "register_number": "111522203016",
+      "name": "HARITHRA R",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 17,
+    "fields": {
+      "register_number": "111522203017",
+      "name": "HARSHITHA D",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 18,
+    "fields": {
+      "register_number": "111522203018",
+      "name": "HEMADARSHNI J",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 19,
+    "fields": {
+      "register_number": "111522203019",
+      "name": "HEMAVATHY R",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 20,
+    "fields": {
+      "register_number": "111522203020",
+      "name": "INBATHAMILAN A",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 21,
+    "fields": {
+      "register_number": "111522203021",
+      "name": "ISAIVASHINI S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 22,
+    "fields": {
+      "register_number": "111522203022",
+      "name": "KANISHIK E",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 23,
+    "fields": {
+      "register_number": "111522203023",
+      "name": "KANISHKA S",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 24,
+    "fields": {
+      "register_number": "111522203024",
+      "name": "KARTHIGA V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 25,
+    "fields": {
+      "register_number": "111522203025",
+      "name": "KAVIPRIYA P",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 26,
+    "fields": {
+      "register_number": "111522203026",
+      "name": "KEERTHANA S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 27,
+    "fields": {
+      "register_number": "111522203027",
+      "name": "KISHORE BABU U",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 28,
+    "fields": {
+      "register_number": "111522203028",
+      "name": "MANASA G V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 29,
+    "fields": {
+      "register_number": "111522203029",
+      "name": "MANJUSHREE M",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 30,
+    "fields": {
+      "register_number": "111522203030",
+      "name": "MANOJ KUMAR P",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 31,
+    "fields": {
+      "register_number": "111522203031",
+      "name": "MERCY CATHERINE D",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 32,
+    "fields": {
+      "register_number": "111522203032",
+      "name": "MOHANA SHRI V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 33,
+    "fields": {
+      "register_number": "111522203033",
+      "name": "MOTHIPRAKASH R",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 34,
+    "fields": {
+      "register_number": "111522203034",
+      "name": "NIRANJANA R",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 35,
+    "fields": {
+      "register_number": "111522203035",
+      "name": "PRATHYUSH N P",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 36,
+    "fields": {
+      "register_number": "111522203036",
+      "name": "PRAVEEN S",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 37,
+    "fields": {
+      "register_number": "111522203037",
+      "name": "PRIYADHARSHINI L",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 38,
+    "fields": {
+      "register_number": "111522203038",
+      "name": "PRIYADHARSHINI S",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 39,
+    "fields": {
+      "register_number": "111522203039",
+      "name": "RAHUL K",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 40,
+    "fields": {
+      "register_number": "111522203040",
+      "name": "RAMANAN S",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 41,
+    "fields": {
+      "register_number": "111522203041",
+      "name": "RAMYA A",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 42,
+    "fields": {
+      "register_number": "111522203042",
+      "name": "RASHMI S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 43,
+    "fields": {
+      "register_number": "111522203043",
+      "name": "RESHMA SHAIK",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 44,
+    "fields": {
+      "register_number": "111522203044",
+      "name": "ROHITH KUMAR V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 45,
+    "fields": {
+      "register_number": "111522203045",
+      "name": "ROSHAN N S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 46,
+    "fields": {
+      "register_number": "111522203046",
+      "name": "RUBADHARSHINI P",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 47,
+    "fields": {
+      "register_number": "111522203047",
+      "name": "SAI VISHNU K",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 48,
+    "fields": {
+      "register_number": "111522203048",
+      "name": "SATHYAPRIYA S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 49,
+    "fields": {
+      "register_number": "111522203049",
+      "name": "SHARAN A E",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 50,
+    "fields": {
+      "register_number": "111522203050",
+      "name": "SHERLIN S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 51,
+    "fields": {
+      "register_number": "111522203051",
+      "name": "SHREYA AGRAWAL",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 52,
+    "fields": {
+      "register_number": "111522203052",
+      "name": "SIVAN ARUTCH SELVAN A S",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 53,
+    "fields": {
+      "register_number": "111522203053",
+      "name": "SOWMYA V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 54,
+    "fields": {
+      "register_number": "111522203054",
+      "name": "SRINATH M",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 55,
+    "fields": {
+      "register_number": "111522203055",
+      "name": "SRINITHI P",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 56,
+    "fields": {
+      "register_number": "111522203056",
+      "name": "SRUTHIK T",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 57,
+    "fields": {
+      "register_number": "111522203057",
+      "name": "SUPRAJA M B",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 58,
+    "fields": {
+      "register_number": "111522203058",
+      "name": "SWATHI V",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 59,
+    "fields": {
+      "register_number": "111522203059",
+      "name": "THANIGAIVELAVAN A",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 60,
+    "fields": {
+      "register_number": "111522203060",
+      "name": "THIPIRISHETTY KAVYA SRI",
+      "Class": 1,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 61,
+    "fields": {
+      "register_number": "111522203061",
+      "name": "UDHAYA SARAVANAN G",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 62,
+    "fields": {
+      "register_number": "111522203062",
+      "name": "VISHAL V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 63,
+    "fields": {
+      "register_number": "111522203063",
+      "name": "DINESH V",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 64,
+    "fields": {
+      "register_number": "111522203301",
+      "name": "YASHWANTHASAI G K",
+      "Class": 1,
+      "mode": "Dayscholar"
+    }
+  },
+  {
+    "model": "attendanceapp.student",
+    "pk": 65,
+    "fields": {
+      "register_number": "111",
+      "name": "Test",
+      "Class": 2,
+      "mode": "Hosteller"
+    }
+  },
+  {
+    "model": "attendanceapp.staff",
+    "pk": 1,
+    "fields": {
+      "name": "Jothilakshmi R",
+      "email": "rjl.it@rmd.ac.in",
+      "department": 1,
+      "Class": 1
+    }
+  },
+  {
+    "model": "attendanceapp.staff",
+    "pk": 2,
+    "fields": {
+      "name": "Bharathwaj",
+      "email": "bharathwaj11a@gmail.com",
+      "department": 1,
+      "Class": null
+    }
+  },
+  {
+    "model": "attendanceapp.attendance",
+    "pk": 1,
+    "fields": {
+      "date": "2024-07-25",
+      "department": "IT",
+      "semester": "V",
+      "section": "A",
+      "updated_at": "2024-07-25T15:26:48.666Z",
+      "created_at": "2024-07-25T15:26:48.666Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendance",
+    "pk": 3,
+    "fields": {
+      "date": "2024-07-26",
+      "department": "IT",
+      "semester": "V",
+      "section": "A",
+      "updated_at": "2024-07-26T10:06:49.410Z",
+      "created_at": "2024-07-26T10:06:49.410Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 1,
+    "fields": {
+      "student": 1,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.697Z",
+      "updated_at": "2024-07-25T15:26:48.697Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 2,
+    "fields": {
+      "student": 2,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.726Z",
+      "updated_at": "2024-07-25T15:26:48.726Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 3,
+    "fields": {
+      "student": 3,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.758Z",
+      "updated_at": "2024-07-25T15:26:48.758Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 4,
+    "fields": {
+      "student": 4,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.792Z",
+      "updated_at": "2024-07-25T15:26:48.792Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 5,
+    "fields": {
+      "student": 5,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.823Z",
+      "updated_at": "2024-07-25T15:26:48.823Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 6,
+    "fields": {
+      "student": 6,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.854Z",
+      "updated_at": "2024-07-25T15:26:48.854Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 7,
+    "fields": {
+      "student": 7,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.884Z",
+      "updated_at": "2024-07-25T15:26:48.884Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 8,
+    "fields": {
+      "student": 8,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.910Z",
+      "updated_at": "2024-07-25T15:26:48.910Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 9,
+    "fields": {
+      "student": 9,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.939Z",
+      "updated_at": "2024-07-25T15:26:48.939Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 10,
+    "fields": {
+      "student": 10,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.967Z",
+      "updated_at": "2024-07-25T15:26:48.967Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 11,
+    "fields": {
+      "student": 11,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:48.998Z",
+      "updated_at": "2024-07-25T15:26:48.998Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 12,
+    "fields": {
+      "student": 12,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.030Z",
+      "updated_at": "2024-07-25T15:26:49.031Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 13,
+    "fields": {
+      "student": 13,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.060Z",
+      "updated_at": "2024-07-25T15:26:49.060Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 14,
+    "fields": {
+      "student": 14,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.089Z",
+      "updated_at": "2024-07-25T15:26:49.089Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 15,
+    "fields": {
+      "student": 15,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.117Z",
+      "updated_at": "2024-07-25T15:26:49.117Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 16,
+    "fields": {
+      "student": 16,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.150Z",
+      "updated_at": "2024-07-25T15:26:49.150Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 17,
+    "fields": {
+      "student": 17,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.179Z",
+      "updated_at": "2024-07-25T15:26:49.179Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 18,
+    "fields": {
+      "student": 18,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.207Z",
+      "updated_at": "2024-07-25T15:26:49.207Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 19,
+    "fields": {
+      "student": 19,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.236Z",
+      "updated_at": "2024-07-25T15:26:49.236Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 20,
+    "fields": {
+      "student": 20,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.266Z",
+      "updated_at": "2024-07-25T15:26:49.266Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 21,
+    "fields": {
+      "student": 21,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.294Z",
+      "updated_at": "2024-07-25T15:26:49.295Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 22,
+    "fields": {
+      "student": 22,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.324Z",
+      "updated_at": "2024-07-25T15:26:49.324Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 23,
+    "fields": {
+      "student": 23,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.353Z",
+      "updated_at": "2024-07-25T15:26:49.353Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 24,
+    "fields": {
+      "student": 24,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.381Z",
+      "updated_at": "2024-07-25T15:26:49.381Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 25,
+    "fields": {
+      "student": 25,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.423Z",
+      "updated_at": "2024-07-25T15:26:49.423Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 26,
+    "fields": {
+      "student": 26,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.456Z",
+      "updated_at": "2024-07-25T15:26:49.456Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 27,
+    "fields": {
+      "student": 27,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.500Z",
+      "updated_at": "2024-07-25T15:26:49.500Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 28,
+    "fields": {
+      "student": 28,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.529Z",
+      "updated_at": "2024-07-25T15:26:49.529Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 29,
+    "fields": {
+      "student": 29,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.561Z",
+      "updated_at": "2024-07-25T15:26:49.561Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 30,
+    "fields": {
+      "student": 30,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "On Duty External",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.593Z",
+      "updated_at": "2024-07-25T15:26:49.593Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 31,
+    "fields": {
+      "student": 31,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.627Z",
+      "updated_at": "2024-07-25T15:26:49.627Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 32,
+    "fields": {
+      "student": 32,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.659Z",
+      "updated_at": "2024-07-25T15:26:49.659Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 33,
+    "fields": {
+      "student": 33,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.694Z",
+      "updated_at": "2024-07-25T15:26:49.694Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 34,
+    "fields": {
+      "student": 34,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.723Z",
+      "updated_at": "2024-07-25T15:26:49.723Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 35,
+    "fields": {
+      "student": 35,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.752Z",
+      "updated_at": "2024-07-25T15:26:49.752Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 36,
+    "fields": {
+      "student": 36,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.784Z",
+      "updated_at": "2024-07-25T15:26:49.784Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 37,
+    "fields": {
+      "student": 37,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.815Z",
+      "updated_at": "2024-07-25T15:26:49.815Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 38,
+    "fields": {
+      "student": 38,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.846Z",
+      "updated_at": "2024-07-25T15:26:49.846Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 39,
+    "fields": {
+      "student": 39,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.889Z",
+      "updated_at": "2024-07-25T15:26:49.889Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 40,
+    "fields": {
+      "student": 40,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.927Z",
+      "updated_at": "2024-07-25T15:26:49.927Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 41,
+    "fields": {
+      "student": 41,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.957Z",
+      "updated_at": "2024-07-25T15:26:49.957Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 42,
+    "fields": {
+      "student": 42,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:49.997Z",
+      "updated_at": "2024-07-25T15:26:49.997Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 43,
+    "fields": {
+      "student": 43,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.027Z",
+      "updated_at": "2024-07-25T15:26:50.027Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 44,
+    "fields": {
+      "student": 44,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.056Z",
+      "updated_at": "2024-07-25T15:26:50.056Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 45,
+    "fields": {
+      "student": 45,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.092Z",
+      "updated_at": "2024-07-25T15:26:50.092Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 46,
+    "fields": {
+      "student": 46,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.122Z",
+      "updated_at": "2024-07-25T15:26:50.122Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 47,
+    "fields": {
+      "student": 47,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.151Z",
+      "updated_at": "2024-07-25T15:26:50.151Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 48,
+    "fields": {
+      "student": 48,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Absent",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.187Z",
+      "updated_at": "2024-07-25T15:26:50.187Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 49,
+    "fields": {
+      "student": 49,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "On Duty Internal",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.219Z",
+      "updated_at": "2024-07-25T15:26:50.219Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 50,
+    "fields": {
+      "student": 50,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.251Z",
+      "updated_at": "2024-07-25T15:26:50.251Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 51,
+    "fields": {
+      "student": 51,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Absent",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.291Z",
+      "updated_at": "2024-07-25T15:26:50.291Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 52,
+    "fields": {
+      "student": 52,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.329Z",
+      "updated_at": "2024-07-25T15:26:50.329Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 53,
+    "fields": {
+      "student": 53,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.371Z",
+      "updated_at": "2024-07-25T15:26:50.371Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 54,
+    "fields": {
+      "student": 54,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.398Z",
+      "updated_at": "2024-07-25T15:26:50.398Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 55,
+    "fields": {
+      "student": 55,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.426Z",
+      "updated_at": "2024-07-25T15:26:50.426Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 56,
+    "fields": {
+      "student": 56,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.465Z",
+      "updated_at": "2024-07-25T15:26:50.465Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 57,
+    "fields": {
+      "student": 57,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.508Z",
+      "updated_at": "2024-07-25T15:26:50.508Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 58,
+    "fields": {
+      "student": 58,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "On Duty Internal",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.543Z",
+      "updated_at": "2024-07-25T15:26:50.543Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 59,
+    "fields": {
+      "student": 59,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.577Z",
+      "updated_at": "2024-07-25T15:26:50.577Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 60,
+    "fields": {
+      "student": 60,
+      "Class": 1,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.607Z",
+      "updated_at": "2024-07-25T15:26:50.607Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 61,
+    "fields": {
+      "student": 61,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.638Z",
+      "updated_at": "2024-07-25T15:26:50.638Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 62,
+    "fields": {
+      "student": 62,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.674Z",
+      "updated_at": "2024-07-25T15:26:50.674Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 63,
+    "fields": {
+      "student": 63,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.703Z",
+      "updated_at": "2024-07-25T15:26:50.704Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 64,
+    "fields": {
+      "student": 64,
+      "Class": 1,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-25",
+      "created_at": "2024-07-25T15:26:50.737Z",
+      "updated_at": "2024-07-25T15:26:50.737Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 129,
+    "fields": {
+      "student": 1,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.442Z",
+      "updated_at": "2024-07-26T10:06:49.442Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 130,
+    "fields": {
+      "student": 2,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.474Z",
+      "updated_at": "2024-07-26T10:06:49.474Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 131,
+    "fields": {
+      "student": 3,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.506Z",
+      "updated_at": "2024-07-26T10:06:49.506Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 132,
+    "fields": {
+      "student": 4,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.537Z",
+      "updated_at": "2024-07-26T10:06:49.537Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 133,
+    "fields": {
+      "student": 5,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.567Z",
+      "updated_at": "2024-07-26T10:06:49.567Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 134,
+    "fields": {
+      "student": 6,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.597Z",
+      "updated_at": "2024-07-26T10:06:49.597Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 135,
+    "fields": {
+      "student": 7,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.628Z",
+      "updated_at": "2024-07-26T10:06:49.628Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 136,
+    "fields": {
+      "student": 8,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.659Z",
+      "updated_at": "2024-07-26T10:06:49.659Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 137,
+    "fields": {
+      "student": 9,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.690Z",
+      "updated_at": "2024-07-26T10:06:49.690Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 138,
+    "fields": {
+      "student": 10,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.720Z",
+      "updated_at": "2024-07-26T10:06:49.720Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 139,
+    "fields": {
+      "student": 11,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.749Z",
+      "updated_at": "2024-07-26T10:06:49.749Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 140,
+    "fields": {
+      "student": 12,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.779Z",
+      "updated_at": "2024-07-26T10:06:49.779Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 141,
+    "fields": {
+      "student": 13,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.814Z",
+      "updated_at": "2024-07-26T10:06:49.814Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 142,
+    "fields": {
+      "student": 14,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.848Z",
+      "updated_at": "2024-07-26T10:06:49.848Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 143,
+    "fields": {
+      "student": 15,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.877Z",
+      "updated_at": "2024-07-26T10:06:49.877Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 144,
+    "fields": {
+      "student": 16,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.909Z",
+      "updated_at": "2024-07-26T10:06:49.909Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 145,
+    "fields": {
+      "student": 17,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.939Z",
+      "updated_at": "2024-07-26T10:06:49.939Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 146,
+    "fields": {
+      "student": 18,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:49.970Z",
+      "updated_at": "2024-07-26T10:06:49.970Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 147,
+    "fields": {
+      "student": 19,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.000Z",
+      "updated_at": "2024-07-26T10:06:50.000Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 148,
+    "fields": {
+      "student": 20,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.033Z",
+      "updated_at": "2024-07-26T10:06:50.033Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 149,
+    "fields": {
+      "student": 21,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.068Z",
+      "updated_at": "2024-07-26T10:06:50.068Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 150,
+    "fields": {
+      "student": 22,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.098Z",
+      "updated_at": "2024-07-26T10:06:50.098Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 151,
+    "fields": {
+      "student": 23,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.129Z",
+      "updated_at": "2024-07-26T10:06:50.129Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 152,
+    "fields": {
+      "student": 24,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.166Z",
+      "updated_at": "2024-07-26T10:06:50.166Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 153,
+    "fields": {
+      "student": 25,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "On Duty External",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.199Z",
+      "updated_at": "2024-07-26T10:06:50.199Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 154,
+    "fields": {
+      "student": 26,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.229Z",
+      "updated_at": "2024-07-26T10:06:50.229Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 155,
+    "fields": {
+      "student": 27,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.260Z",
+      "updated_at": "2024-07-26T10:06:50.260Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 156,
+    "fields": {
+      "student": 28,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.289Z",
+      "updated_at": "2024-07-26T10:06:50.289Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 157,
+    "fields": {
+      "student": 29,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.319Z",
+      "updated_at": "2024-07-26T10:06:50.319Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 158,
+    "fields": {
+      "student": 30,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.355Z",
+      "updated_at": "2024-07-26T10:06:50.355Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 159,
+    "fields": {
+      "student": 31,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.386Z",
+      "updated_at": "2024-07-26T10:06:50.386Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 160,
+    "fields": {
+      "student": 32,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.418Z",
+      "updated_at": "2024-07-26T10:06:50.418Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 161,
+    "fields": {
+      "student": 33,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.449Z",
+      "updated_at": "2024-07-26T10:06:50.449Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 162,
+    "fields": {
+      "student": 34,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.486Z",
+      "updated_at": "2024-07-26T10:06:50.486Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 163,
+    "fields": {
+      "student": 35,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Absent",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.519Z",
+      "updated_at": "2024-07-26T10:06:50.519Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 164,
+    "fields": {
+      "student": 36,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.549Z",
+      "updated_at": "2024-07-26T10:06:50.549Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 165,
+    "fields": {
+      "student": 37,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.581Z",
+      "updated_at": "2024-07-26T10:06:50.581Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 166,
+    "fields": {
+      "student": 38,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "On Duty Internal",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.613Z",
+      "updated_at": "2024-07-26T10:06:50.613Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 167,
+    "fields": {
+      "student": 39,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.646Z",
+      "updated_at": "2024-07-26T10:06:50.647Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 168,
+    "fields": {
+      "student": 40,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.677Z",
+      "updated_at": "2024-07-26T10:06:50.677Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 169,
+    "fields": {
+      "student": 41,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.711Z",
+      "updated_at": "2024-07-26T10:06:50.711Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 170,
+    "fields": {
+      "student": 42,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.742Z",
+      "updated_at": "2024-07-26T10:06:50.742Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 171,
+    "fields": {
+      "student": 43,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.775Z",
+      "updated_at": "2024-07-26T10:06:50.775Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 172,
+    "fields": {
+      "student": 44,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Absent",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.817Z",
+      "updated_at": "2024-07-26T10:06:50.817Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 173,
+    "fields": {
+      "student": 45,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.853Z",
+      "updated_at": "2024-07-26T10:06:50.853Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 174,
+    "fields": {
+      "student": 46,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.890Z",
+      "updated_at": "2024-07-26T10:06:50.890Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 175,
+    "fields": {
+      "student": 47,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.933Z",
+      "updated_at": "2024-07-26T10:06:50.933Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 176,
+    "fields": {
+      "student": 48,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:50.973Z",
+      "updated_at": "2024-07-26T10:06:50.973Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 177,
+    "fields": {
+      "student": 49,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.002Z",
+      "updated_at": "2024-07-26T10:06:51.002Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 178,
+    "fields": {
+      "student": 50,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.034Z",
+      "updated_at": "2024-07-26T10:06:51.035Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 179,
+    "fields": {
+      "student": 51,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Absent",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.077Z",
+      "updated_at": "2024-07-26T10:06:51.077Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 180,
+    "fields": {
+      "student": 52,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.108Z",
+      "updated_at": "2024-07-26T10:06:51.108Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 181,
+    "fields": {
+      "student": 53,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.142Z",
+      "updated_at": "2024-07-26T10:06:51.142Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 182,
+    "fields": {
+      "student": 54,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.177Z",
+      "updated_at": "2024-07-26T10:06:51.178Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 183,
+    "fields": {
+      "student": 55,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.216Z",
+      "updated_at": "2024-07-26T10:06:51.216Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 184,
+    "fields": {
+      "student": 56,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.255Z",
+      "updated_at": "2024-07-26T10:06:51.255Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 185,
+    "fields": {
+      "student": 57,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.289Z",
+      "updated_at": "2024-07-26T10:06:51.289Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 186,
+    "fields": {
+      "student": 58,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Absent",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.323Z",
+      "updated_at": "2024-07-26T10:06:51.323Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 187,
+    "fields": {
+      "student": 59,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.356Z",
+      "updated_at": "2024-07-26T10:06:51.356Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 188,
+    "fields": {
+      "student": 60,
+      "Class": 3,
+      "mode": "Hosteller",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.389Z",
+      "updated_at": "2024-07-26T10:06:51.389Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 189,
+    "fields": {
+      "student": 61,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.421Z",
+      "updated_at": "2024-07-26T10:06:51.421Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 190,
+    "fields": {
+      "student": 62,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.453Z",
+      "updated_at": "2024-07-26T10:06:51.453Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 191,
+    "fields": {
+      "student": 63,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.494Z",
+      "updated_at": "2024-07-26T10:06:51.494Z"
+    }
+  },
+  {
+    "model": "attendanceapp.attendancereport",
+    "pk": 192,
+    "fields": {
+      "student": 64,
+      "Class": 3,
+      "mode": "Dayscholar",
+      "status": "Present",
+      "date": "2024-07-26",
+      "created_at": "2024-07-26T10:06:51.542Z",
+      "updated_at": "2024-07-26T10:06:51.542Z"
+    }
+  }
+]
