@@ -601,6 +601,7 @@ def save_attendance(request):
 
     return JsonResponse({'status': 'Error', 'message': 'Invalid request method'}, status=400, safe=False)
 
+
 @csrf_exempt
 def get_attendance(request):
     staff = get_object_or_404(Staff,email=request.user.email)
