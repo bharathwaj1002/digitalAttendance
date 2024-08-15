@@ -35,7 +35,12 @@
                     <div class="icon">
                         <i class="nav-icon fas fa-user-plus"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    {% if total_present != 0 %}
+                    <a href="hod_present_student_info" class="small-box-footer">More info <i
+                            class="fas fa-arrow-circle-right"></i></a>
+                    {% else %}
+                    <a class="small-box-footer disabled-link">Yet to note</a>
+                    {% endif %}
                 </div>
             </div>
             <!-- ./col -->
@@ -54,7 +59,12 @@
                     <div class="icon">
                         <i class="nav-icon fas fa-user-minus"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    {% if absent != 0 %}
+                    <a href="hod_absent_student_info" class="small-box-footer">More info <i
+                            class="fas fa-arrow-circle-right"></i></a>
+                    {% else %}
+                    <a class="small-box-footer disabled-link">Yet to note</a>
+                    {% endif %}
                 </div>
             </div>
             <!-- ./col -->
@@ -69,8 +79,12 @@
                     <div class="icon">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                     </div>
-                    <a href="hod_view_attendance" class="small-box-footer">More info <i
+                    {% if total_od_count != 0 %}
+                    <a href="hod_od_student_info" class="small-box-footer">More info <i
                             class="fas fa-arrow-circle-right"></i></a>
+                    {% else %}
+                    <a class="small-box-footer disabled-link">No one</a>
+                    {% endif %}
                 </div>
             </div>
             <!-- ./col -->

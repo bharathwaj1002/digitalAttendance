@@ -38,7 +38,7 @@ def doLogin(request):
             auth.login(request,user)
             return redirect('/')
         else:
-            messages.info(request,'Invalid Credentials, Verify your credentials')
+            # messages.info(request,'Invalid Credentials, Verify your credentials')
             return redirect('login')
             
     else:
@@ -484,6 +484,7 @@ def students_info(request):
         }
         
         return render(request, 'student_info.html', context)
+        
 
 @staff_required
 def hod_students_info(request):
@@ -548,6 +549,184 @@ def principal_students_info(request):
     }
 
     return render(request, 'principal_student_info.html', context)
+
+
+def present_students_info(request):
+        staff = get_object_or_404(Staff, email=request.user.email)
+        students_data = []
+        students = AttendanceReport.objects.filter(Class__department=staff.Class.department,Class__semester=staff.Class.semester,Class__section=staff.Class.section,date=timezone.now().date(),status__in=['Present','On Duty External','On Duty Internal'])
+        
+        for item in students:
+            data = {
+                'register_number':item.student.register_number,
+                'name':item.student.name,
+                'semester':item.Class.semester,
+                'section':item.Class.section,
+                'date':item.date,
+                'status':item.status,
+                'mode':item.mode
+                }
+            students_data.append(data)
+        
+        context = {
+            'students': students_data
+        }
+        return render(request,'present_students_info.html',context)
+    
+def absent_students_info(request):
+        staff = get_object_or_404(Staff, email=request.user.email)
+        students_data = []
+        students = AttendanceReport.objects.filter(Class__department=staff.Class.department,Class__semester=staff.Class.semester,Class__section=staff.Class.section,date=timezone.now().date(),status='Absent')
+        
+        for item in students:
+            data = {
+                'register_number':item.student.register_number,
+                'name':item.student.name,
+                'semester':item.Class.semester,
+                'section':item.Class.section,
+                'date':item.date,
+                'status':item.status,
+                'mode':item.mode
+                }
+            students_data.append(data)
+        
+        context = {
+            'students': students_data
+        }
+        return render(request,'absent_students_info.html',context)
+        
+def hod_present_students_info(request):
+        staff = get_object_or_404(Staff, email=request.user.email)
+        students_data = []
+        students = AttendanceReport.objects.filter(Class__department=staff.department,date=timezone.now().date(),status__in=['Present','On Duty External','On Duty Internal'])
+        
+        for item in students:
+            data = {
+                'register_number':item.student.register_number,
+                'name':item.student.name,
+                'semester':item.Class.semester,
+                'section':item.Class.section,
+                'date':item.date,
+                'status':item.status,
+                'mode':item.mode
+                }
+            students_data.append(data)
+        
+        context = {
+            'students': students_data
+        }
+        return render(request,'present_students_info.html',context)
+    
+def hod_absent_students_info(request):
+        staff = get_object_or_404(Staff, email=request.user.email)
+        students_data = []
+        students = AttendanceReport.objects.filter(Class__department=staff.department,date=timezone.now().date(),status='Absent')
+        
+        for item in students:
+            data = {
+                'register_number':item.student.register_number,
+                'name':item.student.name,
+                'semester':item.Class.semester,
+                'section':item.Class.section,
+                'date':item.date,
+                'status':item.status,
+                'mode':item.mode
+                }
+            students_data.append(data)
+        
+        context = {
+            'students': students_data
+        }
+        return render(request,'absent_students_info.html',context)
+    
+def hod_od_students_info(request):
+        staff = get_object_or_404(Staff, email=request.user.email)
+        students_data = []
+        students = AttendanceReport.objects.filter(Class__department=staff.department,date=timezone.now().date(),status__in=['On Duty Internal','On Duty External'])
+        
+        for item in students:
+            data = {
+                'register_number':item.student.register_number,
+                'name':item.student.name,
+                'semester':item.Class.semester,
+                'section':item.Class.section,
+                'date':item.date,
+                'status':item.status,
+                'mode':item.mode
+                }
+            students_data.append(data)
+        
+        context = {
+            'students': students_data
+        }
+        return render(request,'od_students_info.html',context)
+    
+
+def principal_present_students_info(request):
+        students_data = []
+        students = AttendanceReport.objects.filter(date=timezone.now().date(),status__in=['Present','On Duty External','On Duty Internal'])
+        
+        for item in students:
+            data = {
+                'register_number':item.student.register_number,
+                'name':item.student.name,
+                'department':item.Class.department,
+                'semester':item.Class.semester,
+                'section':item.Class.section,
+                'date':item.date,
+                'status':item.status,
+                'mode':item.mode
+                }
+            students_data.append(data)
+        
+        context = {
+            'students': students_data
+        }
+        return render(request,'present_students_info.html',context)
+    
+def principal_absent_students_info(request):
+        students_data = []
+        students = AttendanceReport.objects.filter(date=timezone.now().date(),status='Absent')
+        
+        for item in students:
+            data = {
+                'register_number':item.student.register_number,
+                'name':item.student.name,
+                'department':item.Class.department,
+                'semester':item.Class.semester,
+                'section':item.Class.section,
+                'date':item.date,
+                'status':item.status,
+                'mode':item.mode
+                }
+            students_data.append(data)
+        
+        context = {
+            'students': students_data
+        }
+        return render(request,'absent_students_info.html',context)
+
+def principal_od_students_info(request):
+        students_data = []
+        students = AttendanceReport.objects.filter(date=timezone.now().date(),status__in=['On Duty Internal','On Duty External'])
+        
+        for item in students:
+            data = {
+                'register_number':item.student.register_number,
+                'name':item.student.name,
+                'department':item.Class.department,
+                'semester':item.Class.semester,
+                'section':item.Class.section,
+                'date':item.date,
+                'status':item.status,
+                'mode':item.mode
+                }
+            students_data.append(data)
+        
+        context = {
+            'students': students_data
+        }
+        return render(request,'od_students_info.html',context)
 
 
 def staff_take_attendance(request):

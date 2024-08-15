@@ -31,6 +31,17 @@ urlpatterns=[
     path('hod_students_info',views.hod_students_info,name='hod_students_info'),
     path('principal_students_info',views.principal_students_info,name='principal_students_info'),
     
+    path('present_student_info',views.present_students_info,name='present_student_info'),
+    path('hod_present_student_info',views.hod_present_students_info,name='hod_present_student_info'),
+    path('principal_present_student_info',views.principal_present_students_info,name='hod_present_student_info'),
+    
+    path('absent_student_info',views.absent_students_info,name='absent_student_info'),
+    path('hod_absent_student_info',views.hod_absent_students_info,name='hod_present_student_info'),
+    path('principal_absent_student_info',views.principal_absent_students_info,name='hod_present_student_info'),
+    
+    path('hod_od_student_info',views.hod_od_students_info,name='hod_od_student_info'),
+    path('principal_od_student_info',views.principal_od_students_info,name='od_student_info'),
+    
     
     path('get_consecutive_absent_students',views.get_consecutive_absent_students,name='get_consecutive_absent_students'),
     
