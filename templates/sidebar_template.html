@@ -60,6 +60,17 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    {% url 'staff_update_attendance' as staff_update_attendance %}
+                    <a href="{{staff_update_attendance}}"
+                        class="nav-link {% if staff_update_attendance == request.path %} active {% endif %}">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Update Attendance
+                        </p>
+                    </a>
+                </li>
                 {% endif %}
 
                 {% if user.is_superuser %}

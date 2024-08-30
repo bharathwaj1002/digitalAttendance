@@ -12,6 +12,7 @@ urlpatterns=[
     
     
     path('staff_take_attendance',views.staff_take_attendance,name='staff_take_attendance'),
+    path('staff_update_attendance',views.staff_update_attendance,name='staff_update_attendance'),
     
     
     path('staff_view_attendance',views.staff_view_attendance,name='staff_view_attendance'),
