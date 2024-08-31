@@ -794,7 +794,10 @@ def save_attendance(request):
                     Class=attendance,
                     date=date,
                     mode=student.mode,
-                    defaults={'status': student_dict.get('status')}
+                    defaults={
+                        'status': student_dict.get('status'),
+                        'reason': student_dict.get('reason', 'NIL'),
+                        }
                 )
 
             return HttpResponse('OK')
@@ -859,7 +862,8 @@ def get_attendance_report(request):
             "id": attendance_report.student.register_number,
             "name": attendance_report.student.name,
             "date": date,
-            "status":attendance_report.status
+            "status":attendance_report.status,
+            "reason":attendance_report.reason,
         }
         attendance_report_data.append(data)
     
@@ -879,7 +883,8 @@ def hod_get_attendance_report(request):
             "date": date,
             "semester": attendance_report.student.Class.semester,
             "section": attendance_report.student.Class.section,
-            "status":attendance_report.status
+            "status":attendance_report.status,
+            "reason":attendance_report.reason,
         }
         attendance_report_data.append(data)
     
@@ -896,9 +901,11 @@ def principal_get_attendance_report(request):
             "id": attendance_report.student.register_number,
             "name": attendance_report.student.name,
             "date": date,
+            "department": request.POST['department'],
             "semester": attendance_report.student.Class.semester,
             "section": attendance_report.student.Class.section,
-            "status":attendance_report.status
+            "status":attendance_report.status,
+            "reason":attendance_report.reason,
         }
         attendance_report_data.append(data)
     

@@ -90,7 +90,6 @@
                     semester: semester,
                     section: section
                 }
-
             }).done(function (response) {
                 if (response.length > 0) {
                     var html = "";
@@ -142,7 +141,9 @@
             var div_data = "<hr/><div class='form-group'></div><div class='form-group'><div class='row'>";
 
             for (var key in json_data) {
-                div_data += "<div class='col-lg-3'><div class='form-group'><label>" + json_data[key]['id'] + "</label><select class='form-control' name='student_data[" + json_data[key]['id'] + "]'>";
+                div_data += "<div class='col-lg-3'><div class='form-group'><label>" + json_data[key]['id'] + "</label>";
+                div_data += "<select class='form-control status-select' name='student_data[" + json_data[key]['id'] + "]'>";
+
                 var currentStatus = json_data[key]['status'];
                 switch (currentStatus) {
                     case 'Present':
@@ -170,12 +171,22 @@
                         div_data += "<option value='On Duty Internal'>On Duty Internal</option>";
                         break;
                 }
-                div_data += "</select></div></div>";
+                div_data += "</select><input type='text' class='form-control reason-input' name='reason[" + json_data[key]['id'] + "]' style='display:none;' placeholder='Reason for absence'></div></div>";
             }
 
             div_data += "</div></div>";
             div_data += "<div class='form-group'><button id='save_attendance' class='btn btn-success' type='button'>Save Attendance</button></div>";
             $("#student_data").html(div_data);
+
+            // Toggle reason input based on status
+            $(document).on('change', '.status-select', function () {
+                var reasonInput = $(this).closest('.form-group').find('.reason-input');
+                if ($(this).val() === 'Absent') {
+                    reasonInput.show();
+                } else {
+                    reasonInput.hide().val('');
+                }
+            });
 
             $(document).on('click', '#save_attendance', function () {
                 $(this).attr("disabled", "disabled");
@@ -185,7 +196,8 @@
                 $("select[name^='student_data']").each(function () {
                     var student_id = $(this).attr('name').match(/\[(\d+)\]/)[1];
                     var status = $(this).val();
-                    student_data[student_id] = { 'id': student_id, 'status': status };
+                    var reason = $(this).closest('.form-group').find('.reason-input').val();
+                    student_data[student_id] = { 'id': student_id, 'status': status, 'reason': reason };
                 });
 
                 var student_data_array = Object.values(student_data);

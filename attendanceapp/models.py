@@ -99,6 +99,7 @@ class AttendanceReport(models.Model):
     Class = models.ForeignKey(Attendance, on_delete=models.CASCADE)
     mode = models.CharField(max_length=10)
     status = models.CharField(max_length=10)
+    reason = models.TextField(blank=True, null=True)
     date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

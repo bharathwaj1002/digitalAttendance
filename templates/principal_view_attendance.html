@@ -177,6 +177,7 @@
                 }
             }).done(function (response) {
                 var json_data = response
+                console.log('json_data',json_data)
                 if (json_data.length < 1) {
                     alert("No data to display")
                     $("#save_attendance").hide()
@@ -187,7 +188,12 @@
                     var div_data = "<hr/><div class='form-group'></div><div class='form-group'> <label>Student Attendance</label><div class='row'>"
 
                     for (key in json_data) {
-                        div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'>" + (json_data[key]['id']) + ' - ' + (json_data[key]['status']) + "</label></div> </div>"
+                        if ((json_data[key]['reason'])) {
+                            div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'>" + (json_data[key]['id']) + ' - ' + (json_data[key]['status']) + ' - ' + (json_data[key]['reason']) + "</label></div> </div>"
+                        }
+                        else {
+                            div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'>" + (json_data[key]['id']) + ' - ' + (json_data[key]['status']) + "</label></div> </div>"
+                        }
                     }
                     div_data += "</div></div>"
                     div_data += "<div class='form-group'><button id='save_attendance' class='btn btn-success' type='button'>export as sheet</button></div>"
@@ -199,13 +205,13 @@
                         wb.Props = {
                             Title: "Attendance Sheet",
                             Subject: "Attendance",
-                            Author: department + "HOD",
+                            Author: "Principal",
                             CreatedDate: new Date()
                         };
 
-                        var ws_data = [['Date', 'Semester', 'Section', 'Register Number', 'Name', 'Status']];
+                        var ws_data = [['Date', 'department', 'Semester', 'Section', 'Register Number', 'Name', 'Status', 'Reason']];
                         json_data.forEach(function (row) {
-                            ws_data.push([row.date, row.semester, row.section, row.id, row.name, row.status]);
+                            ws_data.push([row.date, row.department, row.semester, row.section, row.id, row.name, row.status, row.reason]);
                         });
 
                         var ws = XLSX.utils.aoa_to_sheet(ws_data);
@@ -219,7 +225,12 @@
                         var div_data = "<hr/><div class='form-group'></div><div class='form-group'><label>Student Attendance</label><div class='row'>";
 
                         for (var key in json_data) {
-                            div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'>" + json_data[key]['id'] + ' - ' + json_data[key]['status'] + "</label></div> </div>";
+                            if ((json_data[key]['reason'])) {
+                                div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'>" + (json_data[key]['id']) + ' - ' + (json_data[key]['status']) + ' - ' + (json_data[key]['reason']) + "</label></div> </div>"
+                            }
+                            else {
+                                div_data += "<div class='col-lg-3'><div class='form-check custom-control custom-checkbox'>" + (json_data[key]['id']) + ' - ' + (json_data[key]['status']) + "</label></div> </div>"
+                            }
                         }
 
                         div_data += "</div></div>";
