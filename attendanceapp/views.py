@@ -6,6 +6,7 @@ from django.utils import timezone
 from .import EmailBackend
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
+from django.core.exceptions import ValidationError
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -747,6 +748,19 @@ def staff_take_attendance(request):
 
     return render(request, 'staff_take_attendance.html', context)
 
+def staff_update_attendance(request):
+    staff = get_object_or_404(Staff, email=request.user.email)
+    department = staff.Class.department
+    semester = staff.Class.semester
+    section = staff.Class.section
+    context = {
+        'department': department,
+        'semester': semester,
+        'section': section,
+        'page_title': 'Update Attendance'
+    }
+
+    return render(request, 'staff_update_attendance.html', context)
 
     
 @csrf_exempt
@@ -762,20 +776,30 @@ def save_attendance(request):
             # Parse the JSON data
             students = json.loads(student_data)
 
-            # Create an attendance record (adjust based on your model)
-            attendance = Attendance(date=date, department=department, semester=semester, section=section)
-            attendance.save()
+            # Check if an attendance record already exists
+            attendance, created = Attendance.objects.get_or_create(
+                date=date, 
+                department=department, 
+                semester=semester, 
+                section=section
+            )
 
-            # Save each student's attendance record
+            # Save or update each student's attendance record
             for student_dict in students:
                 student = get_object_or_404(Student, register_number=student_dict.get('id'))
-                attendance_report = AttendanceReport(student=student, Class=attendance, status=student_dict.get('status'),date=date,mode=student.mode)
-                attendance_report.save()
+                
+                # Check if an attendance report already exists for the student on the given date
+                attendance_report, created = AttendanceReport.objects.update_or_create(
+                    student=student,
+                    Class=attendance,
+                    date=date,
+                    mode=student.mode,
+                    defaults={'status': student_dict.get('status')}
+                )
 
             return HttpResponse('OK')
 
         except Exception as e:
-
             return JsonResponse({'status': 'Error', 'message': str(e)}, status=500, safe=False)
 
     return JsonResponse({'status': 'Error', 'message': 'Invalid request method'}, status=400, safe=False)
@@ -890,7 +914,7 @@ def staff_view_attendance(request):
         'department': department,
         'semester': semester,
         'section': section,
-        'page_title': 'Update Attendance'
+        'page_title': 'View Attendance'
     }
 
     return render(request, 'staff_view_attendance.html', context)
