@@ -3,7 +3,6 @@ from pyexpat.errors import messages
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
-from .import EmailBackend
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ValidationError
@@ -13,14 +12,14 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 def staff_required(view_func):
     decorated_view_func = user_passes_test(
-        lambda user: user.is_authenticated and user.is_staff,
+        lambda user: user.is_authenticated and user.role == 'hod',
         login_url='/login/'
     )(view_func)
     return decorated_view_func
 
-def superuser_required(view_func):
+def principal_required(view_func):
     decorated_view_func = user_passes_test(
-        lambda user: user.is_authenticated and user.is_superuser,
+        lambda user: user.is_authenticated and user.role == 'principal',
         login_url='/login/'
     )(view_func)
     return decorated_view_func
@@ -80,14 +79,14 @@ def get_students(request):
 
 @login_required
 def index(request):
-    if request.user.is_superuser:
+    if request.user.role == 'principal':
         return redirect('principal_index')
     
-    elif request.user.is_staff:
+    elif request.user.role == 'hod':
         return redirect('hod_index')
 
     else:
-        staff = get_object_or_404(Staff,email=request.user.email)
+        staff = get_object_or_404(Staff,user__email=request.user.email)
         
         students = Student.objects.filter(
             Class__department=staff.Class.department,
@@ -196,7 +195,7 @@ def index(request):
 
 @staff_required
 def hod_index(request):
-    staff = get_object_or_404(Staff,email=request.user.email)
+    staff = get_object_or_404(Staff,user__email=request.user.email)
     attendances = []
     classes = []
     students = Student.objects.filter(
@@ -318,7 +317,7 @@ def hod_index(request):
     
     return render(request,'hod_index.html',context)
 
-@superuser_required
+@principal_required
 def principal_index(request):
     # staff = get_object_or_404(Staff,email=request.user.email)
     attendances = []
@@ -443,7 +442,7 @@ def students_info(request):
     elif request.user.is_staff:
         return redirect('hod_students_info')
     else:
-        staff = get_object_or_404(Staff, email=request.user.email)
+        staff = get_object_or_404(Staff, user__email=request.user.email)
         students_data = []
         students = Student.objects.filter(
             Class__department=staff.Class.department,
@@ -489,7 +488,7 @@ def students_info(request):
 
 @staff_required
 def hod_students_info(request):
-    staff = get_object_or_404(Staff, email=request.user.email)
+    staff = get_object_or_404(Staff, user__email=request.user.email)
     students_data = []
     
     students = Student.objects.filter(Class__department=staff.department)
@@ -521,7 +520,7 @@ def hod_students_info(request):
 
     return render(request, 'hod_student_info.html', context)
 
-@superuser_required
+@principal_required
 def principal_students_info(request):
     students_data = []
     students = Student.objects.all()
@@ -553,7 +552,7 @@ def principal_students_info(request):
 
 
 def present_students_info(request):
-        staff = get_object_or_404(Staff, email=request.user.email)
+        staff = get_object_or_404(Staff, user__email=request.user.email)
         students_data = []
         students = AttendanceReport.objects.filter(Class__department=staff.Class.department,Class__semester=staff.Class.semester,Class__section=staff.Class.section,date=timezone.now().date(),status__in=['Present','On Duty External','On Duty Internal'])
         
@@ -575,7 +574,7 @@ def present_students_info(request):
         return render(request,'present_students_info.html',context)
     
 def absent_students_info(request):
-        staff = get_object_or_404(Staff, email=request.user.email)
+        staff = get_object_or_404(Staff, user__email=request.user.email)
         students_data = []
         students = AttendanceReport.objects.filter(Class__department=staff.Class.department,Class__semester=staff.Class.semester,Class__section=staff.Class.section,date=timezone.now().date(),status='Absent')
         
@@ -597,7 +596,7 @@ def absent_students_info(request):
         return render(request,'absent_students_info.html',context)
         
 def hod_present_students_info(request):
-        staff = get_object_or_404(Staff, email=request.user.email)
+        staff = get_object_or_404(Staff, user__email=request.user.email)
         students_data = []
         students = AttendanceReport.objects.filter(Class__department=staff.department,date=timezone.now().date(),status__in=['Present','On Duty External','On Duty Internal'])
         
@@ -619,7 +618,7 @@ def hod_present_students_info(request):
         return render(request,'present_students_info.html',context)
     
 def hod_absent_students_info(request):
-        staff = get_object_or_404(Staff, email=request.user.email)
+        staff = get_object_or_404(Staff, user__email=request.user.email)
         students_data = []
         students = AttendanceReport.objects.filter(Class__department=staff.department,date=timezone.now().date(),status='Absent')
         
@@ -641,7 +640,7 @@ def hod_absent_students_info(request):
         return render(request,'absent_students_info.html',context)
     
 def hod_od_students_info(request):
-        staff = get_object_or_404(Staff, email=request.user.email)
+        staff = get_object_or_404(Staff, user__email=request.user.email)
         students_data = []
         students = AttendanceReport.objects.filter(Class__department=staff.department,date=timezone.now().date(),status__in=['On Duty Internal','On Duty External'])
         
@@ -732,8 +731,8 @@ def principal_od_students_info(request):
 
 def staff_take_attendance(request):
     
-    staff_queryset = Staff.objects.filter(email=request.user.email)
-    staff = get_object_or_404(Staff,email=request.user.email)
+    staff_queryset = Staff.objects.filter(user__email=request.user.email)
+    staff = get_object_or_404(Staff,user__email=request.user.email)
     is_attendance_taken_today='No'
     current_date = timezone.now()
     if Attendance.objects.filter(department=staff.Class.department,semester=staff.Class.semester,section=staff.Class.section,date=current_date):
@@ -749,7 +748,7 @@ def staff_take_attendance(request):
     return render(request, 'staff_take_attendance.html', context)
 
 def staff_update_attendance(request):
-    staff = get_object_or_404(Staff, email=request.user.email)
+    staff = get_object_or_404(Staff, user__email=request.user.email)
     department = staff.Class.department
     semester = staff.Class.semester
     section = staff.Class.section
@@ -810,7 +809,7 @@ def save_attendance(request):
 
 @csrf_exempt
 def get_attendance(request):
-    staff = get_object_or_404(Staff,email=request.user.email)
+    staff = get_object_or_404(Staff,user__email=request.user.email)
     attendances = Attendance.objects.filter(department=staff.Class.department,semester=staff.Class.semester,section=staff.Class.section)
     attendance_data = []
     for attendance in attendances:
@@ -825,7 +824,7 @@ def get_attendance(request):
 @csrf_exempt
 @staff_required
 def hod_get_attendance(request):
-    staff = get_object_or_404(Staff,email=request.user.email)
+    staff = get_object_or_404(Staff,user__email=request.user.email)
     attendances = Attendance.objects.filter(department=staff.department,semester=request.POST['semester'],section=request.POST['section'])
     attendance_data = []
     for attendance in attendances:
@@ -838,7 +837,7 @@ def hod_get_attendance(request):
     return JsonResponse(attendance_data, safe=False)
 
 @csrf_exempt
-@superuser_required
+@principal_required
 def principal_get_attendance(request):
     attendances = Attendance.objects.filter(department=request.POST['department'],semester=request.POST['semester'],section=request.POST['section'])
     attendance_data = []
@@ -853,7 +852,7 @@ def principal_get_attendance(request):
 
 @csrf_exempt
 def get_attendance_report(request):
-    staff = get_object_or_404(Staff,email=request.user.email)
+    staff = get_object_or_404(Staff,user__email=request.user.email)
     date = request.POST.get('attendance_date_id')
     attendance_reports = AttendanceReport.objects.filter(Class__department=staff.Class.department,Class__semester=staff.Class.semester,Class__section=staff.Class.section,date=date)
     attendance_report_data = []
@@ -872,7 +871,7 @@ def get_attendance_report(request):
 @csrf_exempt
 @staff_required
 def hod_get_attendance_report(request):
-    staff = get_object_or_404(Staff,email=request.user.email)
+    staff = get_object_or_404(Staff,user__email=request.user.email)
     date = request.POST.get('attendance_date_id')
     attendance_reports = AttendanceReport.objects.filter(Class__department=staff.department,Class__semester=request.POST['semester'],Class__section=request.POST['section'],date=date)
     attendance_report_data = []
@@ -891,7 +890,7 @@ def hod_get_attendance_report(request):
     return JsonResponse(attendance_report_data, safe=False)
 
 @csrf_exempt
-@superuser_required
+@principal_required
 def principal_get_attendance_report(request):
     date = request.POST.get('attendance_date_id')
     attendance_reports = AttendanceReport.objects.filter(Class__department=request.POST['department'],Class__semester=request.POST['semester'],Class__section=request.POST['section'],date=date)
@@ -913,7 +912,7 @@ def principal_get_attendance_report(request):
     
 
 def staff_view_attendance(request):
-    staff = get_object_or_404(Staff, email=request.user.email)
+    staff = get_object_or_404(Staff, user__email=request.user.email)
     department = staff.Class.department
     semester = staff.Class.semester
     section = staff.Class.section
@@ -928,7 +927,7 @@ def staff_view_attendance(request):
 
 @staff_required
 def hod_view_attendance(request):
-    staff = get_object_or_404(Staff, email=request.user.email)
+    staff = get_object_or_404(Staff, user__email=request.user.email)
     department = staff.department
     context = {
         'department': department,
@@ -936,14 +935,14 @@ def hod_view_attendance(request):
 
     return render(request, 'hod_view_attendance.html', context)
 
-@superuser_required
+@principal_required
 def principal_view_attendance(request):
 
     return render(request, 'principal_view_attendance.html')
 
 
 def get_consecutive_absent_students(request):
-    staff = get_object_or_404(Staff, email=request.user.email)
+    staff = get_object_or_404(Staff, user__email=request.user.email)
     
     consecutive_absent_students_data =[]
     consecutive_absent_students=[]

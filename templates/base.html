@@ -56,7 +56,8 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="/">Home</a>
                 </li>
-                {% if user.is_staff or user.is_superuser %}
+                {% if user.role == 'hod' or user.role == 'principal' %}
+                
                 {% else %}
 
                 <li class="nav-item">
@@ -64,11 +65,11 @@
                 </li>
                 {% endif %}
 
-                {% if user.is_superuser %}
+                {% if user.role == 'principal' %}
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="principal_view_attendance ">View Attendance</a>
                 </li>
-                {% elif user.is_staff %}
+                {% elif user.role == 'hod' %}
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="hod_view_attendance ">View Attendance</a>
                 </li>

@@ -5,13 +5,13 @@
         <img src="{% static 'dist/img/AdminLTELogo.png' %} " alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
 
-        {% if user.is_superuser %}
-        <span class="brand-text font-weight-light">Principal Panel</span>
+        {% if user.role == 'principal' %}
+        <span class="brand-text font-weight-light">RMD | Principal Panel</span>
 
-        {% elif user.is_staff %}
-        <span class="brand-text font-weight-light">HOD Panel</span>
+        {% elif user.role == 'hod' %}
+        <span class="brand-text font-weight-light">RMD | HOD Panel</span>
         {% else %}
-        <span class="brand-text font-weight-light">Staff Panel</span>
+        <span class="brand-text font-weight-light">RMD | Staff Panel</span>
         {% endif %}
 
     </a>
@@ -33,9 +33,9 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    {% if user.is_superuser %}
+                    {% if user.role == 'principal' %}
                     <a href="/" class="nav-link {% if '/principal_index' == request.path %} active {% endif %}">
-                        {% elif user.is_staff %}
+                        {% elif user.role == 'hod' %}
                         <a href="/" class="nav-link {% if '/hod_index' == request.path %} active {% endif %}">
                             {% else %}
                             <a href="/" class="nav-link {% if '/' == request.path %} active {% endif %}">
@@ -48,7 +48,7 @@
                                 </p>
                             </a>
                 </li>
-                {% if user.is_staff %}
+                {% if user.role == 'hod' or user.role == 'principal' %}
                 {% else %}
                 <li class="nav-item">
                     {% url 'staff_take_attendance' as staff_take_attendance %}
@@ -73,7 +73,7 @@
                 </li>
                 {% endif %}
 
-                {% if user.is_superuser %}
+                {% if user.role == 'principal' %}
                 <li class="nav-item">
                     {% url 'principal_view_attendance' as principal_view_attendance %}
                     <a href="{{principal_view_attendance}}"
@@ -86,7 +86,7 @@
                     </a>
                 </li>
 
-                {% elif user.is_staff %}
+                {% elif user.role == 'hod' %}
                 <li class="nav-item">
                     {% url 'hod_view_attendance' as hod_view_attendance %}
                     <a href="{{hod_view_attendance}}"

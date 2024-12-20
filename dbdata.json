@@ -675,26 +675,6 @@
     }
   },
   {
-    "model": "attendanceapp.staff",
-    "pk": 1,
-    "fields": {
-      "name": "Jothilakshmi R",
-      "email": "rjl.it@rmd.ac.in",
-      "department": 1,
-      "Class": 1
-    }
-  },
-  {
-    "model": "attendanceapp.staff",
-    "pk": 2,
-    "fields": {
-      "name": "Bharathwaj",
-      "email": "bharathwaj11a@gmail.com",
-      "department": 1,
-      "Class": null
-    }
-  },
-  {
     "model": "attendanceapp.attendance",
     "pk": 1,
     "fields": {
