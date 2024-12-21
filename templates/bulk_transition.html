@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bulk Transition</title>
+</head>
+
+<body>
+    <h1>Bulk Transition Students</h1>
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color: red">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="old_class">Current Class:</label>
+        <select id="old_class" name="old_class" required>
+            <option value="">-- Select Current Class --</option>
+            {% for cls in classes %}
+            <option value="{{ cls.id }}">{{ cls }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="new_class">Target Class:</label>
+        <select id="new_class" name="new_class" required>
+            <option value="">-- Select Target Class --</option>
+            {% for cls in classes %}
+            <option value="{{ cls.id }}">{{ cls }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Transition Students</button>
+    </form>
+</body>
+
+</html>

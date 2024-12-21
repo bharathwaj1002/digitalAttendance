@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reassign Student</title>
+</head>
+
+<body>
+    <h1>Reassign Student: {{ student.name }}</h1>
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color: red">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="new_class">New Class:</label>
+        <select id="new_class" name="new_class" required>
+            <option value="">-- Select New Class --</option>
+            {% for cls in classes %}
+            <option value="{{ cls.id }}" {% if student.Class.id==cls.id %}selected{% endif %}>
+                {{ cls }}
+            </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Reassign</button>
+    </form>
+</body>
+
+</html>

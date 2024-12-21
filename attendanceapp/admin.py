@@ -2,9 +2,16 @@
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.shortcuts import redirect
+from django.urls import path
 from unfold.admin import ModelAdmin
 from .models import User, Department, Class, Student, Staff, Attendance, AttendanceReport
 from django.contrib.auth.models import Group
+from django.contrib import messages
+from django.views.generic import TemplateView
+from unfold.views import UnfoldModelAdminViewMixin
+
+
 
 admin.site.unregister(Group)
 @admin.register(User)
@@ -49,6 +56,7 @@ class ClassAdmin(ModelAdmin):
     list_display = ('department', 'year', 'semester', 'section')
     list_filter = ('department', 'year', 'semester', 'section')
     search_fields = ('department__department_name',)
+
 
 
 @admin.register(Student)

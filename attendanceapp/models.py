@@ -110,7 +110,7 @@ class Student(models.Model):
         ('Dayscholar','Dayscholar')
     )
     
-    register_number = models.CharField(max_length=12)
+    register_number = models.CharField(max_length=12, unique=True)
     name = models.CharField(max_length=50)
     Class = models.ForeignKey(Class, on_delete=models.CASCADE)
     mode = models.CharField(choices=modeList,max_length=10)

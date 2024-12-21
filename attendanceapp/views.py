@@ -1,5 +1,5 @@
 import json
-from pyexpat.errors import messages
+from django.contrib import messages
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
@@ -9,10 +9,18 @@ from django.core.exceptions import ValidationError
 from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.db.models import Count
 
 def staff_required(view_func):
     decorated_view_func = user_passes_test(
         lambda user: user.is_authenticated and user.role == 'hod',
+        login_url='/login/'
+    )(view_func)
+    return decorated_view_func
+
+def admin_required(view_func):
+    decorated_view_func = user_passes_test(
+        lambda user: user.is_authenticated and user.role == 'admin',
         login_url='/login/'
     )(view_func)
     return decorated_view_func
@@ -980,3 +988,48 @@ def get_consecutive_absent_students(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+
+# View for bulk transition of students from one class to another
+def bulk_transition_students(request):
+    if request.method == 'POST':
+        old_class_id = request.POST.get('old_class')
+        new_class_id = request.POST.get('new_class')
+        
+        try:
+            old_class = Class.objects.get(id=old_class_id)
+            new_class = Class.objects.get(id=new_class_id)
+            
+            # Overwrite students' current class with the new class
+            students_updated = Student.objects.filter(Class=old_class).update(Class=new_class)
+            
+            messages.success(request, f"{students_updated} students moved from {old_class} to {new_class}.")
+            return redirect('bulk_transition')
+        except Class.DoesNotExist:
+            messages.error(request, "Invalid class selected.")
+    
+    # Get all classes to display in the form
+    classes = Class.objects.all()
+    return render(request, 'bulk_transition.html', {'classes': classes})
+
+# View for reassigning a student to a new class
+def reassign_student(request, student_register_number):
+    try:
+        student = Student.objects.get(register_number=student_register_number)
+    except Student.DoesNotExist:
+        messages.error(request, "Student does not exist.")
+        return redirect("admin:app_label_student_changelist")
+
+    if request.method == 'POST':
+        new_class_id = request.POST.get('new_class')
+        try:
+            new_class = Class.objects.get(id=new_class_id)
+            student.Class = new_class
+            student.save()
+            messages.success(request, f"Student {student.name} has been reassigned to {new_class}.")
+            return redirect("admin:app_label_student_changelist")
+        except Class.DoesNotExist:
+            messages.error(request, "Invalid class selected.")
+    
+    classes = Class.objects.all()
+    return render(request, 'admin/reassign_student.html', {'student': student, 'classes': classes})

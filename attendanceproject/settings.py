@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from django.templatetags.static import static
+from django.utils.translation import gettext_lazy as _
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.humanize",
     "attendanceapp"
 ]
 
@@ -141,3 +145,144 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+def dashboard_callback(request, context):
+    """
+    Callback to prepare custom variables for index template which is used as dashboard
+    template. It can be overridden in application by creating custom admin/index.html.
+    """
+    context.update(
+        {
+            "sample": "example",  # this will be injected into templates/admin/index.html
+        }
+    )
+    return context
+
+def environment_callback(request):
+    """
+    Callback to return a list of two values representing text value and the color
+    type of the label displayed in the top right corner.
+    """
+    return ["Production", "danger"]
+
+
+def badge_callback(request):
+    return 5  # Example badge count
+
+
+def permission_callback(request):
+    return request.user.has_perm("app.change_user")
+
+UNFOLD = {
+    "SITE_TITLE": "RMD | Admin Panel",
+    "SITE_HEADER": "RMD Administration",
+    "SITE_URL": "/",
+    "SITE_ICON": {
+        "light": lambda request: static("icon-light.svg"),
+        "dark": lambda request: static("icon-dark.svg"),
+    },
+    # "SITE_LOGO": {
+    #     "light": lambda request: static("logo-light.svg"),
+    #     "dark": lambda request: static("logo-dark.svg"),
+    # },
+    "SITE_SYMBOL": "task",
+    "SITE_FAVICONS": [
+        {
+            "rel": "icon",
+            "sizes": "32x32",
+            "type": "image/svg+xml",
+            "href": lambda request: static("favicon.svg"),
+        },
+    ],
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": True,
+    "ENVIRONMENT": environment_callback,
+    "DASHBOARD_CALLBACK": dashboard_callback,
+    # "THEME": "dark",
+    "LOGIN": {
+        "image": lambda request: static("images/login-bg.jpg"),
+        "redirect_after": lambda request: reverse_lazy("admin:attendanceapp_user_changelist"),
+    },
+    "STYLES": [
+        lambda request: static("css/style.css"),
+    ],
+    "SCRIPTS": [
+        lambda request: static("js/script.js"),
+    ],
+    "COLORS": {
+        "font": {
+            "subtle-light": "107 114 128",
+            "subtle-dark": "156 163 175",
+            "default-light": "75 85 99",
+            "default-dark": "209 213 219",
+            "important-light": "17 24 39",
+            "important-dark": "243 244 246",
+        },
+        "primary": {
+            "50": "250 245 255",
+            "100": "243 232 255",
+            "200": "233 213 255",
+            "300": "216 180 254",
+            "400": "192 132 252",
+            "500": "168 85 247",
+            "600": "147 51 234",
+            "700": "126 34 206",
+            "800": "107 33 168",
+            "900": "88 28 135",
+            "950": "59 7 100",
+        },
+    },
+    "EXTENSIONS": {
+        "modeltranslation": {
+            "flags": {
+                "en": "🇬🇧",
+                "fr": "🇫🇷",
+                "nl": "🇧🇪",
+            },
+        },
+    },
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": False,
+        "navigation": [
+            {
+                "title": _("Navigation"),
+                "separator": True, 
+                "collapsible": False,
+                "items": [
+                    {
+                        "title": _("Dashboard"),
+                        "icon": "dashboard",
+                        "link": reverse_lazy("admin:index"),
+                        "badge": badge_callback,
+                        "permission": lambda request: request.user.is_superuser,
+                    },
+                    {
+                        "title": _("Users"),
+                        "icon": "people",
+                        "link": reverse_lazy("admin:attendanceapp_user_changelist"),
+                    },
+                    {
+                        "title": _("Departments"),
+                        "icon": "apartment",
+                        "link": reverse_lazy("admin:attendanceapp_department_changelist"),
+                    },
+                    {
+                        "title": _("Class"),
+                        "icon": "school",
+                        "link": reverse_lazy("admin:attendanceapp_class_changelist"),
+                    },
+                    {
+                        "title": _("Staffs"),
+                        "icon": "supervisor_account",
+                        "link": reverse_lazy("admin:attendanceapp_staff_changelist"),
+                    },
+                    {
+                        "title": _("Students"),
+                        "icon": "person",
+                        "link": reverse_lazy("admin:attendanceapp_student_changelist"),
+                    },
+                ],
+            },
+        ],
+    },
+}

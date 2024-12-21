@@ -55,6 +55,9 @@ urlpatterns=[
     path('save_attendance',views.save_attendance,name='save_attendance'),
     
     
+    path('bulk_transition', views.bulk_transition_students, name='bulk_transition'),
+    path('reassign_student/<int:student_id>', views.reassign_student, name='reassign_student'),
+    
     path('logout',views.logout,name='logout'),
     
 ]
